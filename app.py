@@ -1,6 +1,14 @@
 from flask import Flask,render_template
 
-app = Flask(__name__)     
+
+
+app = Flask(__name__,template_folder='myapp/templates',static_folder='myapp/static',instance_relative_config=True)  
+
+app.config.from_object('config')
+app.config.from_pyfile('config.py')
+
+
+
 @app.route('/')
 @app.route('/home')
 def home():
@@ -30,4 +38,4 @@ def signup():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=app.config['DEBUG'],port=app.config['PORT'])
