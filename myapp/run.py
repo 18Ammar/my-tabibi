@@ -1,4 +1,4 @@
-from appModul import create_app
+from appModule import create_app
 
 app = create_app()
 
