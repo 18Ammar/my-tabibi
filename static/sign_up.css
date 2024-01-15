@@ -12,18 +12,14 @@ header {
     text-align: center;
 }
 
-h1 {
-    font-size: 36px;
+h1, h2 {
+    font-size: 24px;
+    color: #333;
 }
 
 section {
     padding: 2em;
     text-align: center;
-}
-
-h2 {
-    font-size: 24px;
-    color: #333;
 }
 
 form {
@@ -41,28 +37,14 @@ input {
     width: 300px;
     padding: 8px;
     margin-top: 5px;
-    margin-bottom: 25px;
-    border-radius: 3px;
+    margin-bottom: 15px;
     box-sizing: border-box;
-    transition: border-color 0.3s ease; /* Add a transition for smooth effect */
-}
-
-input:hover {
-    border-color: #00ced1; /* Change border color on hover */
-}
-
-a {
-    text-decoration: none;
-    color: #008b8b;
-    font-size: 16px;
 }
 
 button {
     width: 300px;
     padding: 10px 20px;
     font-size: 16px;
-    position: relative; /* Set position to relative */
-    top: 10px; /* Adjust this value to move it down */
     background-color: #008b8b;
     color: white;
     border: none;
@@ -75,29 +57,9 @@ button:hover {
     background-color: #00ced1;
 }
 
-.oauth-buttons {
-    margin-top: 20px;
-}
-
-.oauth-buttons button {
-    background-color: #008b8b;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease; /* Add a transition for smooth effect */
-}
-
-.oauth-buttons button:hover {
-    background-color: #00ced1; /* Change background color on hover */
-}
-
-
 p {
     font-size: 16px;
-    margin-top: 25px;
+    margin-top: 15px;
 }
 
 footer {

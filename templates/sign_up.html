@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tabibi - Health Assistant | Sign Up</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='signup.css') }}"> <!-- Link to the external CSS file -->
+</head>
+<body>
+
+    <header>
+        <div id="logo">tabibi</div>
+        <h1>tabibi - Health Assistant</h1>
+    </header>
+
+    <section>
+        <h2>Create an Account</h2>
+        <form action="{{ url_for('register') }}" method="post">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <label for="confirm-password">Confirm Password:</label>
+            <input type="password" id="confirm-password" name="confirm-password" required>
+
+            <button type="submit">Sign Up</button>
+        </form>
+
+        <p>Already have an account? <a href="{{ url_for('sign_in') }}">Sign In</a></p>
+    </section>
+
+    <footer>
+        &copy; 2024 tabibi - Health Assistant
+    </footer>
+
+</body>
+</html>
