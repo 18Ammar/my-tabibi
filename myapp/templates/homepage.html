@@ -1,30 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>tabibi - Health Assistant</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='homepage.css') }}"> <!-- Link to the external CSS file -->
-</head>
-<body>
+{% extends 'index.html' %}
 
-    <header>
-        <div id="logo">tabibi</div>
-        <h1>tabibi - Health Assistant</h1>
-        <button id="signin-button" onclick="location.href='{{ url_for('sign_in') }}'">Sign In</button>
+{% block title %}
+    tabibi - Health Assistant
+{% endblock %}
 
-    </header>
+{% block logo %}
+    tabibi
+{% endblock %}
 
-    <section>
-        <h1>AI Health Assistant for all your health-<br> related questions.</h1>
-        <span class="warning">&#9888;</span>
-            <span class="warning-text">tabibi AI Health Assistant is for informational purposes only. Don’t take any actions without a doctor’s validation or consultation.</span>
-    </section>
+{% block header %}
+    tabibi - Health Assistant
+{% endblock %}
 
-    <footer>
-        &copy; 2024 tabibi - Health Assistant
-    </footer>
+{% block button %}
+    <button id="signin-button" onclick="location.href='{{ url_for('sign_in') }}'">Sign In</button>
+{% endblock %}
 
-</body>
-</html>
+{% block content %}
+    <h1>AI Health Assistant for all your health-<br> related questions.</h1>
+    <span class="warning">&#9888;</span>
+    <span class="warning-text">tabibi AI Health Assistant is for informational purposes only. Don’t take any actions without a doctor’s validation or consultation.</span>
+{% endblock %}
+
+{% block footer %}
+    tabibi - Health Assistant
+{% endblock %}

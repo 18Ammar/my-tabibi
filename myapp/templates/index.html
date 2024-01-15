@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Default Title{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+    <header>
+        <div id="logo">{% block logo %}Default Logo{% endblock %}</div>
+        <h1>{% block header %}Default Header{% endblock %}</h1>
+        {% block button %}{% endblock %}
+    </header>
+
+    <section>
+        {% block content %}{% endblock %}
+    </section>
+
+    <footer>
+        &copy; 2024 {% block footer %}Default Footer{% endblock %}
+    </footer>
+
+</body>
+</html>
