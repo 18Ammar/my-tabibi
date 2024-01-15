@@ -28,19 +28,20 @@ form {
     align-items: center;
 }
 
-label {
-    margin-top: 10px;
-    font-size: 18px;
-}
 
 input {
     width: 300px;
     padding: 8px;
     margin-top: 5px;
     margin-bottom: 15px;
+    border-radius: 5px;
     box-sizing: border-box;
+    transition: border-color 0.3s ease; /* Add a transition for smooth effect */
 }
 
+input:hover {
+    border-color: #00ced1; /* Change border color on hover */
+}
 button {
     width: 300px;
     padding: 10px 20px;
