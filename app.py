@@ -15,15 +15,15 @@ def sign_in():
 def login():
     return "Login logic goes here"
 
-@app.route('/forgot_password')
+@app.route('/forgot-password')
 def forgot_password():
     return "Forgot password logic goes here"
 
-@app.route('/auth_google')
+@app.route('/auth-google')
 def auth_google():
     return "Google authentication logic goes here"
 
-@app.route('/signup')
+@app.route('/sign-up')
 def signup():
     return render_template('sign_up.html')
 
