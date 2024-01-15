@@ -2,10 +2,45 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Sign In - tabibi</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-   sign in page  
+
+    <header>
+        <h1>tabibi</h1>
+    </header>
+
+    <section>
+        <h2>Welcome back!</h2>
+        <form action="" method="post">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <a href="">Forgot password?</a>
+
+            <button type="submit">Sign In</button>
+        </form>
+
+        <p>OR</p>
+
+        <div class="oauth-buttons">
+            <button onclick="location.href=''">Continue with Google</button>
+        </div>
+
+        <p>Don’t have an account? <a href="">Sign Up</a></p>
+
+        <p>By signing in you agree to the <a href="#">Terms of Use</a>, <a href="#">Privacy Policy</a>, and <a href="#">Cookie Policy</a>.</p>
+    </section>
+
+    <footer>
+        &copy; 2024 tabibi - Health Assistant
+    </footer>
+
 </body>
 </html>
