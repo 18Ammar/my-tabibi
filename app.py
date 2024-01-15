@@ -7,7 +7,9 @@ def home():
     title = "طبيبي - Home"
     return render_template('homepage.html',title=title)
 
-
+@app.route('/sign in')
+def sign_in():
+    return render_template('sign_in.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

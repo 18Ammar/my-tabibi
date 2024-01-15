@@ -6,7 +6,7 @@ body {
 }
 
 header {
-    background-color: #008b8b;
+    background-color: #009698 ;
     color: white;
     padding: 1em;
     display: flex;
@@ -21,23 +21,34 @@ header {
 }
 
 #signin-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #008b8b;
+    padding: 10px 100px;
+    font-size: 20px;
+    background-color: #009698 ;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin-right: 20px; /* Shifted the sign-in button to the left */
+}
+#signin-button:hover {
+color: #96ded1;
+}
+.warning {
+    color: #ef0303; /* Red color for warning sign */
+    font-size: 26px;
+    display: inline-block;
+    margin-right: 5px; /* Add some space between the warning sign and text */
 }
 
+.warning-text {
+    font-size: 18px;
+}
 section {
     padding: 2em;
     text-align: center;
 }
 
 footer {
-    background-color: #008b8b;
+    background-color: #009698 ;
     color: white;
     padding: 1em;
     text-align: center;

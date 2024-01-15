@@ -5,21 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>tabibi - Health Assistant</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}"> <!-- Link to the external CSS file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='homepage.css') }}"> <!-- Link to the external CSS file -->
 </head>
 <body>
 
     <header>
-        <button id="signin-button" onclick="location.href='/signin'">Sign In</button>
-        <h1>tabibi - Health Assistant</h1>
         <div id="logo">tabibi</div>
+        <h1>tabibi - Health Assistant</h1>
+        <button id="signin-button" onclick="location.href='/signin'">Sign In</button>
     </header>
 
     <section>
-        <h1>AI Health Assistant for all your health-related questions.</h1>
-        <p>
-            <h3>&#9888; tabibi AI Health Assistant is for informational purposes only. Don’t take any actions without a doctor’s validation or consultation.</h3>
-        </p>
+        <h1>AI Health Assistant for all your health-<br> related questions.</h1>
+        <span class="warning">&#9888;</span>
+            <span class="warning-text">tabibi AI Health Assistant is for informational purposes only. Don’t take any actions without a doctor’s validation or consultation.</span>
     </section>
 
     <footer>
