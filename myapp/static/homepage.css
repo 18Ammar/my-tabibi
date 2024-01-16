@@ -21,6 +21,7 @@ header {
 }
 
 #signin-button {
+    text-decoration: none;
     padding: 10px 100px;
     font-size: 20px;
     background-color: #009698 ;

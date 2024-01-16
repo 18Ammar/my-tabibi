@@ -15,20 +15,21 @@
 
     <section>
         <h2>Welcome back!</h2>
-        <form action="" method="post">
-            <input type="email" id="email" name="email" placeholder="Enter your email" required>
-            <input type="password" id="password" name="password" placeholder="Enter your password" required>
+        <form action="{{url_for('sign_in.sign_in')}}" method="post" >
+            {{form.csrf_token}}
+            {{form.username}}
+            {{form.password}}
             <a href="">Forgot password?</a>
             <button type="submit">Sign In</button>
         </form>
 
         <p>OR</p>
-
+    
         <div class="oauth-buttons">
             <button onclick="location.href=''">Continue with Google</button>
         </div>
 
-        <p>Don’t have an account? <a href="{{ url_for('signup') }}">Sign Up</a></p>
+        <p>Don’t have an account? <a href="{{ url_for('sign_up.sign_up') }}">Sign Up</a></p>
 
         <p>By signing in you agree to the <a href="#">Terms of Use</a>, <a href="#">Privacy Policy</a>, and <a href="#">Cookie Policy</a>.</p>
     </section>

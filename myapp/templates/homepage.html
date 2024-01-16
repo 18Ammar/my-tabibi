@@ -13,7 +13,7 @@
 {% endblock %}
 
 {% block button %}
-    <button id="signin-button" onclick="location.href='{{ url_for('sign_in') }}'">Sign In</button>
+<a id="signin-button" href="{{ url_for('sign_in.sign_in') }}">Sign In</a>
 {% endblock %}
 
 {% block content %}
