@@ -18,5 +18,8 @@ app.register_blueprint(sign_in_bp)
 from appModule.sign_up import sign_up_bp
 app.register_blueprint(sign_up_bp)
 
+from appModule.chat_ai import chat_ai
+app.register_blueprint(chat_ai)
+
 if __name__ == '__main__':
     app.run(debug=True)

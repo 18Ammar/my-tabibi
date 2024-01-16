@@ -14,10 +14,12 @@ header {
     align-items: center;
 }
 
-#logo {
-    font-size: 24px;
-    font-weight: bold;
-    margin-left: 20px; /* Shifted the logo to the right */
+.user_img {
+    height: 70px;
+    width: 70px;
+    border: 1.5px solid #f5f6fa;
+    border-radius: 50%; /* Make the image rounded */
+    opacity: 0.8; /* Set the opacity for transparency (adjust as needed) */
 }
 
 #signin-button {
