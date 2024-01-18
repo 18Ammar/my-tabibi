@@ -1,0 +1,43 @@
+[
+    {
+      "tag": "greeting",
+      "question": ["Hi", "Hello", "Good morning", "Good afternoon", "Good evening"],
+      "answer": ["Hello! How can I assist you today?", "Hi there! What health-related information are you looking for?"]
+    },
+    {
+      "tag": "headache",
+      "question": ["I have a problem with my head", "What are the common causes of headaches?"],
+      "answer": ["Headaches can be caused by various factors, such as stress, tension, dehydration, or underlying health conditions. It's essential to identify the specific triggers to manage and prevent headaches."]
+    },
+    {
+      "tag": "fever",
+      "question": ["How do I reduce fever?", "What are the common causes of a high temperature?"],
+      "answer": ["To reduce fever, you can take over-the-counter fever reducers like acetaminophen or ibuprofen. Common causes of fever include infections, inflammation, and certain medical conditions."]
+    },
+    {
+      "tag": "flu",
+      "question": ["What are the symptoms of the flu?", "How can I protect myself from the flu?"],
+      "answer": ["Flu symptoms include fever, cough, sore throat, body aches, and fatigue. To protect yourself, get vaccinated, practice good hygiene, and avoid close contact with sick individuals."]
+    },
+    {
+      "tag": "diabetes",
+      "question": ["What is diabetes?", "How is diabetes diagnosed and managed?"],
+      "answer": ["Diabetes is a chronic condition that affects how your body turns food into energy. It is diagnosed through blood tests measuring glucose levels. Management involves lifestyle changes, medication, and regular monitoring."]
+    },
+    {
+      "tag": "nutrition",
+      "question": ["How can I maintain a healthy diet?", "What are the essential nutrients for the body?"],
+      "answer": ["Maintaining a healthy diet involves consuming a balanced mix of nutrients, including proteins, carbohydrates, fats, vitamins, and minerals. A diverse and colorful diet promotes overall well-being."]
+    },
+    {
+      "tag": "mental_health",
+      "question": ["What are some strategies for managing stress?", "How can I improve my mental health?"],
+      "answer": ["Managing stress includes practicing relaxation techniques, exercise, and seeking support. Improving mental health involves a balanced lifestyle, social connections, and professional help if needed."]
+    },
+    {
+      "tag": "leaving",
+      "question": ["Goodbye", "See you later", "Take care", "Bye"],
+      "answer": ["Goodbye! If you have more health-related questions in the future, feel free to reach out. Take care!"]
+    }
+  ]
+  
