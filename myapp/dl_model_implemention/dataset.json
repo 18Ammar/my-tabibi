@@ -1,43 +1,114 @@
-[
-    {
+{
+    
+  "intents":[
+  {
       "tag": "greeting",
       "question": ["Hi", "Hello", "Good morning", "Good afternoon", "Good evening"],
       "answer": ["Hello! How can I assist you today?", "Hi there! What health-related information are you looking for?"]
-    },
-    {
+  },
+  {
       "tag": "headache",
-      "question": ["I have a problem with my head", "What are the common causes of headaches?"],
+      "question": [
+          "I have a problem with my head",
+          "What are the common causes of headaches?",
+          "How can I relieve a tension headache?",
+          "Are there natural remedies for headaches?",
+          "When should I see a doctor about my headaches?"
+      ],
       "answer": ["Headaches can be caused by various factors, such as stress, tension, dehydration, or underlying health conditions. It's essential to identify the specific triggers to manage and prevent headaches."]
-    },
-    {
+  },
+  {
       "tag": "fever",
-      "question": ["How do I reduce fever?", "What are the common causes of a high temperature?"],
+      "question": [
+          "How do I reduce fever?",
+          "What are the common causes of a high temperature?",
+          "Should I be concerned about a low-grade fever?",
+          "Are there home remedies for reducing fever?",
+          "When is it necessary to seek medical attention for a fever?"
+      ],
       "answer": ["To reduce fever, you can take over-the-counter fever reducers like acetaminophen or ibuprofen. Common causes of fever include infections, inflammation, and certain medical conditions."]
-    },
-    {
+  },
+  {
       "tag": "flu",
-      "question": ["What are the symptoms of the flu?", "How can I protect myself from the flu?"],
+      "question": [
+          "What are the symptoms of the flu?",
+          "How can I protect myself from the flu?",
+          "Should I get a flu shot?",
+          "What antiviral medications are available for treating the flu?",
+          "How long does it take to recover from the flu?"
+      ],
       "answer": ["Flu symptoms include fever, cough, sore throat, body aches, and fatigue. To protect yourself, get vaccinated, practice good hygiene, and avoid close contact with sick individuals."]
-    },
-    {
+  },
+  {
       "tag": "diabetes",
-      "question": ["What is diabetes?", "How is diabetes diagnosed and managed?"],
+      "question": [
+          "What is diabetes?",
+          "How is diabetes diagnosed and managed?",
+          "What are the symptoms of diabetes?",
+          "Can diabetes be prevented?",
+          "Are there dietary recommendations for people with diabetes?"
+      ],
       "answer": ["Diabetes is a chronic condition that affects how your body turns food into energy. It is diagnosed through blood tests measuring glucose levels. Management involves lifestyle changes, medication, and regular monitoring."]
-    },
-    {
+  },
+  {
       "tag": "nutrition",
-      "question": ["How can I maintain a healthy diet?", "What are the essential nutrients for the body?"],
+      "question": [
+          "How can I maintain a healthy diet?",
+          "What are the essential nutrients for the body?",
+          "Is there an ideal diet for weight loss?",
+          "Are there specific dietary recommendations for different age groups?",
+          "Can you provide tips for meal planning and preparation?"
+      ],
       "answer": ["Maintaining a healthy diet involves consuming a balanced mix of nutrients, including proteins, carbohydrates, fats, vitamins, and minerals. A diverse and colorful diet promotes overall well-being."]
-    },
-    {
+  },
+  {
       "tag": "mental_health",
-      "question": ["What are some strategies for managing stress?", "How can I improve my mental health?"],
+      "question": [
+          "What are some strategies for managing stress?",
+          "How can I improve my mental health?",
+          "Are there effective relaxation techniques?",
+          "When is it important to seek professional help for mental health?",
+          "Can lifestyle changes impact mental well-being?"
+      ],
       "answer": ["Managing stress includes practicing relaxation techniques, exercise, and seeking support. Improving mental health involves a balanced lifestyle, social connections, and professional help if needed."]
-    },
-    {
+  },
+  {
       "tag": "leaving",
       "question": ["Goodbye", "See you later", "Take care", "Bye"],
       "answer": ["Goodbye! If you have more health-related questions in the future, feel free to reach out. Take care!"]
-    }
-  ]
-  
+  },
+  {
+      "tag": "covid_19",
+      "question": [
+          "What are the symptoms of COVID-19?",
+          "How can I protect myself from COVID-19?",
+          "What is the latest information on COVID-19 vaccines?",
+          "Are there specific guidelines for COVID-19 prevention?",
+          "What should I do if I suspect I have COVID-19?"
+      ],
+      "answer": ["Common symptoms of COVID-19 include fever, cough, and difficulty breathing. Protect yourself by wearing masks, practicing social distancing, and washing hands regularly."]
+  },
+  {
+      "tag": "exercise",
+      "question": [
+          "How much exercise do I need?",
+          "What are the benefits of regular exercise?",
+          "Are there specific exercises for different fitness goals?",
+          "Can exercise help with weight loss?",
+          "What is the role of physical activity in maintaining overall health?"
+      ],
+      "answer": ["The recommended amount of exercise is at least 150 minutes of moderate-intensity aerobic activity per week. Regular exercise has numerous health benefits, including improved cardiovascular health and mental well-being."]
+  },
+  {
+      "tag": "sleep",
+      "question": [
+          "How can I improve my sleep?",
+          "What are the consequences of poor sleep?",
+          "Are there natural remedies for insomnia?",
+          "How much sleep do different age groups need?",
+          "Can lifestyle changes positively impact sleep quality?"
+      ],
+      "answer": ["To improve sleep, establish a consistent sleep schedule, create a relaxing bedtime routine, and ensure a comfortable sleep environment. Poor sleep can lead to various health issues, including increased stress and impaired cognitive function."]
+  }
+]
+}

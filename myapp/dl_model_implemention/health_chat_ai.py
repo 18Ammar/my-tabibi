@@ -11,7 +11,7 @@ from sklearn.preprocessing import LabelEncoder
 import random
 
 # Prepare the dataset
-filePath = "content.josn"
+filePath = "D:\\health_AI\\myapp\\dl_model_implemention\\dataset.json"
 
 # Load dataset from JSON file
 with open(filePath) as f:
@@ -35,35 +35,42 @@ data['question'] = data['question'].apply(lambda wrd: [itrs.lower() for itrs in 
 data['question'] = data['question'].apply(lambda wrd: ''.join(wrd))
 
 # Tokenize the text 
-tokenizer = Tokenizer(num_words=1000)
-tokenizer.fit_on_texts(data['question'])
-train = tokenizer.texts_to_sequences(data['question'])
-x_train = pad_sequences(train)
+tokenizer = Tokenizer(num_words=2000)
+tokenizer.fit_on_texts(data['question']) 
 
-#use LabelEncoder to Encode the tags
-le = LabelEncoder()
-y_train = le.fit_transform(data['tags'])
- 
-model = Sequential()
+train_data, val_data = train_test_split(data, test_size=0.2, random_state=42)
 
-vocab = len(tokenizer.word_index) + 1
-embed_dim = 10
-model.add(Embedding(input_dim=vocab, output_dim=embed_dim, input_length=x_train.shape[1]))
+x_train = pad_sequences(tokenizer.texts_to_sequences(train_data['question']))
+x_val = pad_sequences(tokenizer.texts_to_sequences(val_data['question']))
 
-units = 10
-model.add(LSTM(units, return_sequences=True))
+y_train = le.transform(train_data['tags'])
+y_val = le.transform(val_data['tags'])
 
-model.add(Flatten())
+vocab_size = len(tokenizer.word_index) + 1
+print("Number of unique words:", vocab_size)
 
-output_len = le.classes_.shape[0]
-model.add(Dense(output_len, activation="softmax"))
+output_len = len(np.unique(y_train))
+print("Output length:", output_len)
+
+train_data, val_data = train_test_split(data, test_size=0.2, random_state=42)
+
+x_train = pad_sequences(tokenizer.texts_to_sequences(train_data['question']))
+x_val = pad_sequences(tokenizer.texts_to_sequences(val_data['question']))
+
+y_val = le.transform(val_data['tags'])
+
+# Define the model
+i = Input(shape=(x_train.shape[1],))
+x = Embedding(vocab_size, 10)(i)
+x = LSTM(10, return_sequences=True)(x)
+x = Flatten()(x)
+x = Dense(output_len, activation="softmax")(x)
+model = Model(i, x)
 
 model.compile(loss="sparse_categorical_crossentropy", optimizer="adam", metrics=["accuracy"])
 
-model.summary()
-
-# strat Train the model
-model.fit(x_train, y_train, epochs=200)
+# Train the model
+history = model.fit(x_train, y_train, validation_data=(x_val, y_val), epochs=200)
 
 while True:
     text_p = []
