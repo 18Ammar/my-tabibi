@@ -54,9 +54,8 @@ model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=
 model.summary()
 
 # Start training the model
-model.fit(X, Y, epochs=100)  # Increased number of epochs
+model.fit(X, Y, epochs=100)  
 
-# User interaction loop
 while True:
     text_p = []
     predicate_input = input("You: ")
@@ -76,7 +75,6 @@ while True:
        
     output = model.predict(predicate_input)
 
-    # Debugging prints
     print("output shape:", output.shape)
     print("output sum:", np.sum(output))
     output_flat = output.flatten()
@@ -84,9 +82,7 @@ while True:
     print("output_flat:", output_flat)
     print("output_prob:", output_prob)
 
-    # Sampling a word based on normalized probabilities
     predicted_index = np.random.choice(len(output_flat), p=output_prob)
-    # Convert index back to word if the index exists in the mapping
     predicted_word = tokenizer.index_word.get(predicted_index, 'unknown_word')
 
     print("Bot:", predicted_word)
