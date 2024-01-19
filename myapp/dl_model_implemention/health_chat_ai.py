@@ -1,60 +1,69 @@
 import tensorflow as tf
 from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.preprocessing.sequence import pad_sequences
-from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Dense, LSTM, Embedding
+from tensorflow.keras.models import Sequential, Model
+from tensorflow.keras.layers import Dense, LSTM, Embedding, Input, Flatten
 import numpy as np
 import json
 import string
+import pandas as pd
+from sklearn.preprocessing import LabelEncoder
+import random
 
 # Prepare the dataset
-filePath = "D:\\health_AI\\myapp\\dl_model_implemention\\dataset.json"
+filePath = "content.josn"
 
+# Load dataset from JSON file
 with open(filePath) as f:
     dataset = json.load(f)
 
+tags = []
 questionList = []
-answerList = []
-for entry in dataset:
-    # Convert each question to lowercase
-    questions = [question.lower() for question in entry['question']]
-    questionList.append(questions)
+answerList = {}
 
-    # Convert each answer to lowercase
-    answers = [answer.lower() for answer in entry['answer']]
-    answerList.append(answers)
+for intent in dataset["intents"]:
+    answerList[intent['tag']] = intent['answer']
+    for qu in intent['question']:
+        questionList.append(qu)
+        tags.append(intent['tag'])
 
-# Tokenize the text
-tokenizer = Tokenizer()
-tokenizer.fit_on_texts([item for sublist in questionList + answerList for item in sublist])  # Flatten the lists
-question_seq = tokenizer.texts_to_sequences(questionList)
-answer_seq = tokenizer.texts_to_sequences(answerList)
+# Create a DataFrame from Data set
+data = pd.DataFrame({"question": questionList, "tags": tags})
 
-# Here we need a fixed length, so we will use pad_sequences function to make it fixed length
-max_length = max(max(map(len, question_seq)), max(map(len, answer_seq)))
-question_padded = pad_sequences(question_seq, maxlen=max_length, padding='post')
-answer_padded = pad_sequences(answer_seq, maxlen=max_length, padding='post')
+# Preprocess the text data
+data['question'] = data['question'].apply(lambda wrd: [itrs.lower() for itrs in wrd if itrs not in string.punctuation])
+data['question'] = data['question'].apply(lambda wrd: ''.join(wrd))
 
-X = question_padded
-Y = answer_padded
+# Tokenize the text 
+tokenizer = Tokenizer(num_words=1000)
+tokenizer.fit_on_texts(data['question'])
+train = tokenizer.texts_to_sequences(data['question'])
+x_train = pad_sequences(train)
 
-# Define the model
+#use LabelEncoder to Encode the tags
+le = LabelEncoder()
+y_train = le.fit_transform(data['tags'])
+ 
 model = Sequential()
-vocab = len(tokenizer.word_index) + 1
-embed_dim = 50  
-model.add(Embedding(input_dim=vocab, output_dim=embed_dim, input_length=max_length, mask_zero=True))
 
-units = 50  
+vocab = len(tokenizer.word_index) + 1
+embed_dim = 10
+model.add(Embedding(input_dim=vocab, output_dim=embed_dim, input_length=x_train.shape[1]))
+
+units = 10
 model.add(LSTM(units, return_sequences=True))
 
-model.add(Dense(vocab, activation="softmax"))
+model.add(Flatten())
 
-model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
+output_len = le.classes_.shape[0]
+model.add(Dense(output_len, activation="softmax"))
+
+model.compile(loss="sparse_categorical_crossentropy", optimizer="adam", metrics=["accuracy"])
 
 model.summary()
 
-# Start training the model
-model.fit(X, Y, epochs=100)  
+# strat Train the model
+model.fit(x_train, y_train, epochs=200)
 
 while True:
     text_p = []
@@ -70,21 +79,13 @@ while True:
         continue
 
     predicate_input = np.array(predicate_input).reshape(-1)
-    predicate_input = pad_sequences([predicate_input], maxlen=max_length, padding='post')
+    predicate_input = pad_sequences([predicate_input], maxlen=x_train.shape[1])
 
-       
     output = model.predict(predicate_input)
-
-    print("output shape:", output.shape)
-    print("output sum:", np.sum(output))
-    output_flat = output.flatten()
-    output_prob = output_flat / np.sum(output_flat)
-    print("output_flat:", output_flat)
-    print("output_prob:", output_prob)
-
-    predicted_index = np.random.choice(len(output_flat), p=output_prob)
-    predicted_word = tokenizer.index_word.get(predicted_index, 'unknown_word')
-
-    print("Bot:", predicted_word)
-
-
+    output = np.argmax(output)
+    
+    answer_tag = le.inverse_transform([output])[0]
+    
+    respons = random.choice(answerList[answer_tag])
+    
+    print("Bot:", respons)
