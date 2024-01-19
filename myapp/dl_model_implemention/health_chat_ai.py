@@ -41,10 +41,10 @@ Y = answer_padded
 # Define the model
 model = Sequential()
 vocab = len(tokenizer.word_index) + 1
-embed_dim = 50  # Increased embedding dimension
+embed_dim = 50  
 model.add(Embedding(input_dim=vocab, output_dim=embed_dim, input_length=max_length, mask_zero=True))
 
-units = 50  # Increased LSTM units
+units = 50  
 model.add(LSTM(units, return_sequences=True))
 
 model.add(Dense(vocab, activation="softmax"))
