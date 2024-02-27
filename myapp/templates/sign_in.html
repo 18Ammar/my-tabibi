@@ -11,14 +11,10 @@
     <header>
         <img src="{{ url_for('static', filename='tabibi.png') }}" class="logo" alt="a">
         <h1 style="margin-right: 35%;">tabibi - Health Assistant</h1>
-
-    <header>
-        <h1>tabibi</h1>
     </header>
 
     <section>
         <h2>Welcome back!</h2>
-
 
         {% with messages = get_flashed_messages(with_categories=true) %}
             {% for category, message in messages %}
@@ -41,22 +37,6 @@
 
             <button type="submit">Sign In</button>
         </form>
-
-
-        <form action="{{url_for('sign_in.sign_in')}}" method="post" >
-            {{form.csrf_token}}
-            {{form.username}}
-            {{form.password}}
-            <a href="">Forgot password?</a>
-            <button type="submit">Sign In</button>
-        </form>
-
-        <p>OR</p>
-    
-        <div class="oauth-buttons">
-            <button onclick="location.href=''">Continue with Google</button>
-        </div>
-
 
         <p>Don’t have an account? <a href="{{ url_for('sign_up.sign_up') }}">Sign Up</a></p>
 
