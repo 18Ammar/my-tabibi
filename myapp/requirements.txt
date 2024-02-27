@@ -13,7 +13,7 @@ Flask-Mail
 Flask-SQLAlchemy
 Flask-JWT-Extended
 Flask-CORS
-sqlite3
+pysqlite3
 Flask-Migrate
 transformers 
 pandas 
