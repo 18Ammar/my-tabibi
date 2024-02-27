@@ -18,5 +18,4 @@ Flask-Migrate
 transformers 
 pandas 
 Flask-SocketIO 
-torch 
 sqlalchemy
