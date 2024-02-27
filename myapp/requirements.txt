@@ -4,7 +4,7 @@ Flask-WTF
 Flask-Security
 Werkzeug
 Jinja2
-itsdangerous
+itsdangerous==2.1.2
 click
 MarkupSafe
 Flask-Bcrypt
@@ -15,7 +15,6 @@ Flask-JWT-Extended
 Flask-CORS
 pysqlite3
 Flask-Migrate
-transformers 
 pandas 
 Flask-SocketIO 
 sqlalchemy
