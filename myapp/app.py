@@ -2,9 +2,8 @@ from flask import Flask
 import os
 
 app = Flask(__name__)
-config_file_path = 'd:\\health_AI\\instance\\config.py' 
-app.config.from_pyfile(config_file_path)
-app.secret_key = app.config.get('SECRT_KEY','')
+
+app.secret_key = "thisissecrtkey"
 
 from appModule.home import home_bp
 app.register_blueprint(home_bp)
