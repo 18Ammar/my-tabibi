@@ -9,12 +9,16 @@
 </head>
 <body>
     <header>
-        <img src="{{ url_for('static', filename='tabibi.png') }}" class="logo">
+        <img src="{{ url_for('static', filename='tabibi.png') }}" class="logo" alt="a">
         <h1 style="margin-right: 35%;">tabibi - Health Assistant</h1>
+
+    <header>
+        <h1>tabibi</h1>
     </header>
 
     <section>
         <h2>Welcome back!</h2>
+<<<<<<< HEAD
 
         {% with messages = get_flashed_messages(with_categories=true) %}
             {% for category, message in messages %}
@@ -38,6 +42,22 @@
             <button type="submit">Sign In</button>
         </form>
 
+=======
+        <form action="{{url_for('sign_in.sign_in')}}" method="post" >
+            {{form.csrf_token}}
+            {{form.username}}
+            {{form.password}}
+            <a href="">Forgot password?</a>
+            <button type="submit">Sign In</button>
+        </form>
+
+        <p>OR</p>
+    
+        <div class="oauth-buttons">
+            <button onclick="location.href=''">Continue with Google</button>
+        </div>
+
+>>>>>>> 2fa9a444637ff0cd7b4ac8b6b10716d2fb37d29d
         <p>Don’t have an account? <a href="{{ url_for('sign_up.sign_up') }}">Sign Up</a></p>
 
         <p>By signing in you agree to the <a href="#">Terms of Use</a>, <a href="#">Privacy Policy</a>, and <a href="#">Cookie Policy</a>.</p>

@@ -13,7 +13,7 @@
 <body>
 
     <header>
-        <img src="{{ url_for('static', filename='tabibi.png') }}" class="logo">
+        <img src="{{ url_for('static', filename='tabibi.png') }}" class="logo" alt="a">
         <h1 style="margin-right: 38%;">tabibi - Health Assistant</h1>
 </header>
     <section >
@@ -61,6 +61,30 @@
         </div>
 
         
+    <link rel="stylesheet" href="{{ url_for('static', filename='sign_up.css') }}"> 
+    <!-- Link to the external CSS file -->
+</head>
+<body>
+
+    <header>
+        <div id="logo">tabibi</div>
+        <h1>tabibi - Health Assistant</h1>
+    </header>
+
+    <section>
+        <h2>Create an Account</h2>
+        <form action="{{url_for('sign_up.sign_up')}}" method="post">
+            {{ form.csrf_token }}
+            {{ form.email }}
+            {{ form.password }}
+            {{ form.confirm_password }}
+            
+         
+            <button type="submit">Sign Up</button>
+        </form>
+        
+        <p>Already have an account? <a href="{{ url_for('sign_in.sign_in') }}">Sign In</a></p>
+>>>>>>> 2fa9a444637ff0cd7b4ac8b6b10716d2fb37d29d
     </section>
 
     <footer>
