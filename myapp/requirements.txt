@@ -1,2 +1,15 @@
 Flask
 gunicorn
+Flask-WTF
+Flask-Security
+Werkzeug
+Jinja2
+itsdangerous
+click
+MarkupSafe
+Flask-Bcrypt
+Flask-Login
+Flask-Mail
+Flask-SQLAlchemy
+Flask-JWT-Extended
+Flask-CORS
