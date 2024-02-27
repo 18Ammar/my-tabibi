@@ -82,7 +82,7 @@ def update_profile():
         if form.picPath.data:
             pic_file = form.picPath.data
             pic_filename = secure_filename(pic_file.filename)
-            pic_path = os.path.join("D://health_AI//myapp//static//images/", pic_filename)
+            pic_path = os.path.join("D://health_AI//myapp//static//images//", pic_filename)
             if os.path.exists(pic_path):
                 pic_path = pic_path[30:]
                 current_user.image_file = str(pic_path)
