@@ -132,6 +132,7 @@ input[type="password"] {
   transition: 0.2s ease;
   background-color: rgba(139, 233, 248, 0.7);
 }
+
 input[type="text"]::placeholder,
 input[type="password"]::placeholder,
 input[type="text"]::placeholder,
