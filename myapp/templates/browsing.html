@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="{{url_for('static',filename='browsing.css')}}">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <!--==Font-Awesome-for-icons=====-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+        <!-- Link Swiper's CSS -->
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"
+        />
+    <title>Health Assistant - Medical Content</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navigation">
+            <!--**menu-btn*****-->
+            <input type="checkbox" class="menu-btn" id="menu-btn">
+           <label for="menu-btn" class="menu-icon">
+                <span class="nav-icon"></span>
+            </label>
+            <!--**logo*********-->
+            <a href="{{url_for('home.home')}}" class="logo"><span>ta</span>bibi</a>
+            <!--**logo*********-->
+            <!--**menu*********-->
+            <ul class="menu">
+                <li class="navli"><a  href="{{url_for('home.home')}}"><i class="fas fa-home"></i> Home</a></li>
+                <li class="navli"><a  href="{{url_for('profile.user_profile')}}"><i class="fas fa-user"></i>Profile</a> </li>
+                <li class="navli"><a  href="{{url_for('chat.chat')}}" ><i class="fas fa-comments"></i> Chat-Ai</a></li>
+                <li class="navli"><a  href="#"><i class="fas fa-info-circle"></i>About</a></li>
+            </ul>
+           
+        </nav><!--nav-end-->
+    </header> 
+    
+    </header>
+    <div class="container">
+      {%for post in posts%}
+        <div class="card">
+          <div class="card__header">
+            <a href="{{url_for('browser.show_artical',post_id=post.id)}}">
+            <img src="https://source.unsplash.com/600x400/?{{post.tag}}" alt="card__image" class="card__image" width="600">
+          </div>
+          <div class="card__body">
+            <span class="tag tag-blue">{{post.tag}}</span>
+            <h4>{{post.title}}{{post.id}}</h4>
+            <p>{{post.content[:180]|safe }}...</p>
+          </div>
+        </a>
+          <div class="card__footer">
+            <div class="user">
+              <img src="{{url_for('static',filename=post.author.image_file)}}" alt="user__image" class="user__image">
+              <div class="user__info">
+                <h5>{{post.author.username}}</h5>
+                <small>{{post.date_posted.strftime('%Y-%m-%d')}}</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      {%endfor%}
+      </div>
+<!-- ---------------------------------------------------------------------------- -->
+
+    <footer>
+        <div class="footer-container">
+            <!--**comoany-box**-->
+            <div class="footer-company-box">
+                <!--logo-->
+                <img src="{{ url_for('static', filename='tabibi.png') }}" class="logo">
+                <!--details-->
+                <p>tabibi AI Health Assistant is for informational purposes only. Don’t take any actions without a doctor’s validation or consultation.</p>
+                <!--social-box-->
+                <div class="footer-social">
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+            <!--**link-box***-->
+            <div class="footer-link-box">
+                <strong>Main Link's</strong>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Portfolio</a></li>
+                </ul>
+            </div>
+            <!--**link-box***-->
+            <div class="footer-link-box">
+                <strong>External Link's</strong>
+                <ul>
+                    <li><a href="#">Our Product's</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Disclaimer</a></li>
+                    <li><a href="#">Trem's and Condition's</a></li>
+                </ul>
+            </div>
+            <!--**link-box***-->
+            <div class="footer-link-box">
+                <strong>External Link's</strong>
+                <ul>
+                    <li><a href="#">Our Product's</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Disclaimer</a></li>
+                    <li><a href="#">Trem's and Condition's</a></li>
+                </ul>
+            </div>
+            
+   
+        </div>
+
+        <!--**bottom**********************-->
+        <div class="footer-bottom">
+            
+            <span class="copyright">&#169; Copyright 2024 -  Tabibi Ai Health Assistant</span>
+        </div>
+    </footer>
+</body>
+
+</html>

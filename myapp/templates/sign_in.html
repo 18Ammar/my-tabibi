@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In - tabibi</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='sign_in.css') }}">
+</head>
+<body>
+    <header>
+        <img src="{{ url_for('static', filename='tabibi.png') }}" class="logo">
+        <h1 style="margin-right: 35%;">tabibi - Health Assistant</h1>
+    </header>
+
+    <section>
+        <h2>Welcome back!</h2>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% for category, message in messages %}
+                {% if category == 'error' %}
+                    <p style="color: rgb(255, 0, 0);">{{ message }}</p>
+                {% endif %}
+            {% endfor %}
+        {% endwith %}
+
+        <form action="{{ url_for('sign_in.sign_in') }}" method="post">
+            {{ form.csrf_token }}
+
+            {{ form.username.label }}
+            {{ form.username(render_kw={'placeholder': 'Username'}) }}
+
+            {{ form.password.label }}
+            {{ form.password(render_kw={'placeholder': 'Password'}) }}
+
+            <a href="{{ url_for('sign_in.reset_request') }}">Forgot password?</a>
+
+            <button type="submit">Sign In</button>
+        </form>
+
+        <p>Don’t have an account? <a href="{{ url_for('sign_up.sign_up') }}">Sign Up</a></p>
+
+        <p>By signing in you agree to the <a href="#">Terms of Use</a>, <a href="#">Privacy Policy</a>, and <a href="#">Cookie Policy</a>.</p>
+    </section>
+
+    <footer>
+        &copy; 2024 tabibi - Health Assistant
+    </footer>
+
+</body>
+</html>

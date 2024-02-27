@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: -webkit-linear-gradient(to right, rgb(40, 59, 34), rgb(54, 60, 70), #0d3e3e);
+    background: linear-gradient(to right, #008b8b, rgb(50, 55, 65), #0b3b3b);
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background: -webkit-linear-gradient(to right, rgb(40, 59, 34), rgb(54, 60, 70), #0d3e3e);
+    background: linear-gradient(to right, #008b8b, rgb(50, 55, 65), #0b3b3b);
+
+    color: #fff;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    margin-right: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+h1 {
+    margin-left: 20%;
+    font-size: 2em;
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 60px;
+    margin-right: 10px;
+    border-radius: 30px 30px;
+}
+
+p {
+    margin: 5px 0 0;
+    font-size: 1.2em;
+    color: #23292f;
+}
+h1 {
+    color: #ffffff;
+    text-align: center;
+}
+ h2 {
+    font-size: 24px;
+    color: #ffffff;
+}
+
+section {
+    padding: 2em;
+    text-align: center;
+}
+
+form {
+    background-color: #FFF;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    border-radius: 2px;
+    padding: 2em;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #555;
+}
+
+input {
+    padding: 12px;
+    margin-bottom: 20px;
+    border: none;
+    border-bottom: 1px solid #AAA;
+    font-size: 15px;
+    transition: border-color 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+input:hover, input:focus {
+    border-bottom: 2px solid #16a085;
+    color: #16a085;
+}
+
+select {
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #AAA;
+    font-size: 15px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+textarea {
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #AAA;
+    font-size: 15px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    background-color: #008b8b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #00ced1;
+}
+
+a {
+    color: #fbfbfb;
+    text-decoration: none;
+    display: block;
+    margin-top: 10px;
+}
+
+.toggle-link {
+    text-align: center;
+    margin-bottom: 20px;
+}
+#articleForm{
+    margin-top:4% ;
+}
+#imageUpload {
+    margin-top: 20px;
+}
+</style>
+<body>
+    <header>
+        <img src="{{ url_for('static', filename='tabibi.png') }}" class="logo">
+        <h1> Update Posts</h1>
+        <nav>
+            <ul>
+                <li><a class="anav" href="{{url_for('home.home')}}"><i class="fas fa-home"></i> Home</a></li>
+                <li><a class="anav" href="{{url_for('profile.user_profile')}}"><i class="fas fa-user"></i> Profile</a></li>
+                <li><a class="anav" href="{{url_for('chat.chat')}}"><i class="fas fa-comments"></i> Chat-Ai</a></li>
+                <li><a class="anav" href="#"><i class="fas fa-info-circle"></i> About</a></li>
+            </ul>
+        </nav>
+    </header>    
+    <form id="articleForm" method="{% if post %}POST{% else %}GET{% endif %}" {% if post %}action="{{ url_for('profile.update_post', post_id=post.id) }}"{% endif %} enctype="multipart/form-data">
+       
+
+        {{ form.hidden_tag() }}
+        <div class="form-group">
+            <label for="title">Title</label>
+            {{ form.title(class="form-control") }}
+        </div>
+        <div class="form-group">
+            <label for="content">Article Content</label>
+            {{ form.content(class="form-control", rows=8) }}
+        </div>
+        <div class="form-group">
+            <label for="want_image">Do you want to upload an image?</label>
+            <select id="wantImage" name="want_image" class="form-control" onchange="toggleImageUpload()">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+            <div id="chooseTag" style="display: none;">
+                <h3>If not, then we will choose an image associated with your subject</h3>
+                <label for="tag">Please write one word that describes your article like Microbiota</label>
+                {{ form.tag(class="form-control") }}
+            </div>
+        </div>
+        <div id="imageUpload" class="form-group" style="display: none;">
+            <label for="image">Upload Image</label>
+            {{ form.image(class="form-control-file") }}
+        </div>
+        <button type="submit">{% if post %}Update{% else %}Create Article{% endif %}</button>
+
+    </form>
+</body>
+<script>
+    function toggleForm() {
+        var form = document.getElementById('articleForm');
+        var link = document.getElementById('toggleFormLink');
+        var chooseTag = document.getElementById('chooseTag');
+        var container = document.querySelector('.container'); // Use querySelector to select the first matching element
+
+        if (form.style.display === 'none') {
+            form.style.display = 'block';
+            container.style.display = 'none';
+
+            chooseTag.style.display = 'none'; // Hide the tag input when showing the form
+        } else {
+            form.style.display = 'none';
+            container.style.display = 'block'; // Show the container when hiding the form
+            link.style.display = 'block'; // Hide the link
+            chooseTag.style.display = 'block'; // Show the tag input when hiding the form
+        }
+    }
+
+    function toggleImageUpload() {
+        var wantImageSelect = document.getElementById('wantImage');
+        var imageUploadDiv = document.getElementById('imageUpload');
+        var chooseTag = document.getElementById('chooseTag');
+
+        if (wantImageSelect.value === 'yes') {
+            imageUploadDiv.style.display = 'block';
+            chooseTag.style.display = 'none';
+        } else {
+            imageUploadDiv.style.display = 'none';
+            chooseTag.style.display = 'block';
+        }
+    }
+    </script>
+</html>

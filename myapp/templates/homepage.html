@@ -1,0 +1,495 @@
+
+   <!--DOCTYPE html-->
+   <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--==title========================-->
+        <title>Tabibi home page</title>
+        <!--==Fav-icon=====================-->
+        <link rel="stylesheet" href="{{url_for('static',filename='homepage.css')}}">
+        <link rel="shortcut icon" href="images/fav-icon.png">
+        <!--==CSS==========================-->
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <!--==Font-Awesome-for-icons=====-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+        <!-- Link Swiper's CSS -->
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"
+        />
+    
+    </head>
+    <body>
+        
+        <!--==Hero-Section========================-->
+        <section id="hero">
+    
+            <!--==navigation====================-->
+            <nav class="navigation">
+                <!--**menu-btn*****-->
+                <input type="checkbox" class="menu-btn" id="menu-btn" aria-label="kl">
+                <label for="menu-btn" class="menu-icon">
+                    <span class="nav-icon"></span>
+                </label>
+                <!--**logo*********-->
+                <a href="{{url_for('home.home')}}" class="logo"><span>ta</span>bibi</a>
+                <!--**menu*********-->
+                <ul class="menu">
+                    <li><a href="#our-team">Find A Doctor</a></li>
+                    <li><a href="{{url_for('chat.chat')}}">Chat-Ai</a></li>
+                    <li><a href="{{url_for('browser.show_content')}}">Artical</a></li>
+                </ul>
+                <!--**contact*******-->
+                <a href="{{url_for('sign_in.sign_in')}}" class="nav-appointment-btn">Sign in</a>
+            </nav><!--nav-end-->
+    
+    
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Tabibi Your Partner for Personalized Health. </h1>
+                    <p>tabibi AI Health Assistant is for informational purposes only. Don’t take any actions without a doctor’s validation or consultation.</p>
+                    <!--btns-->
+                    <div class="hero-text-btns">
+                        <a href="#"><i class="fa-solid fa-magnifying-glass"></i> Find Doctor's</a>
+                        <a href="#"><i class="fa-solid fa-check"></i> Read Artical</a>
+                    </div>
+                </div>
+                <!--**img*****************-->
+                <div class="hero-img">
+                    <img alt="" src="{{url_for('static',filename='images/main-bg.png')}}">
+                </div>
+            </div>
+    
+            
+        </section><!--hero-end-->
+    
+       
+        <!--==Why-choose-us=======================-->
+        <section id="why-choose-us">
+    
+            <!--**left*****************-->
+            <div class="why-choose-us-left">
+                <h3>Why Choose Us?</h3>
+                <!--==container====-->
+                <div class="why-choose-box-container">
+                    <!--**box**-->
+                    <div class="why-choose-box">
+                        <!--icon-->
+                        <i class="fa-solid fa-check"></i>
+                        <!--text-->
+                        <div class="why-choose-box-text">
+                            <strong>Advance Care</strong>
+                            <p>Lorem ipsum dolor sit</p>
+                        </div>
+                    </div>
+                    <!--**box**-->
+                    <div class="why-choose-box">
+                        <!--icon-->
+                        <i class="fa-solid fa-check"></i>
+                        <!--text-->
+                        <div class="why-choose-box-text">
+                            <strong>Online Medicine</strong>
+                            <p>Lorem ipsum dolor sit</p>
+                        </div>
+                    </div>
+                    <!--**box**-->
+                    <div class="why-choose-box">
+                        <!--icon-->
+                        <i class="fa-solid fa-check"></i>
+                        <!--text-->
+                        <div class="why-choose-box-text">
+                            <strong>Medical & Surgical</strong>
+                            <p>Lorem ipsum dolor sit</p>
+                        </div>
+                    </div>
+                    <!--**box**-->
+                    <div class="why-choose-box">
+                        <!--icon-->
+                        <i class="fa-solid fa-check"></i>
+                        <!--text-->
+                        <div class="why-choose-box-text">
+                            <strong>Ai health chating</strong>
+                            <p>Lorem ipsum dolor sit</p>
+                        </div>
+                    </div>
+                </div>
+                <!--==btn========-->
+              
+            </div><!--left-end-->
+    
+            <!--**right*******************-->
+            <div class="why-choose-us-right">
+                <h3>Emergency?<br/>
+                    Contact Us
+                </h3>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facilis iste, quam ratione rerum aliquid esse vero placeat? debitis velit cupiditate magni cumque corporis.</p>
+                <!--==container====-->
+                <div class="w-right-contact-container">
+                    <!--**box**-->
+                    <div class="w-right-contact-box">
+                        <i class="fa-solid fa-phone"></i>
+                        <!--text-->
+                        <div class="w-right-contact-box-text">
+                            <span>Call Us Now</span>
+                            <strong>+964 773 164 8804</strong>
+                        </div>
+                    </div>
+                    <!--**box**-->
+                    <div class="w-right-contact-box">
+                        <i class="fa-solid fa-envelope"></i>
+                        <!--text-->
+                        <div class="w-right-contact-box-text">
+                            <span>Mail Us</span>
+                            <strong>amar2003895@gmail.com</strong>
+                        </div>
+                    </div>
+                </div>
+            </div><!--right-end-->
+    
+        </section><!--end-->
+    
+    
+    
+        <!--==Team===========================-->
+        <section id="our-team">
+    
+            <!--**heading*****************-->
+            <div class="our-team-heading">
+                <h3>Meet Our Specialist</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            </div>
+    
+            <!--**team-container***********-->
+            <div class="team-box-container">
+                <!-- Swiper -->
+                <div class="swiper mySwiperteam">
+                <div class="swiper-wrapper">
+                    <!--**1***-->
+                    <div class="swiper-slide">
+                        <!--**box**-->
+                        <div class="team-box">
+                            <!--img-->
+                            <div class="team-img">
+                               <a href="{{url_for('profile.get_profile',username='Dr. Sarah Johnson')}}"> <img alt="" src="{{url_for('static',filename='images/d4.png')}}"></a>
+                            </div>
+                            <!--text-->
+                            <div class="team-text">
+                                <strong>Dr. Sarah Johnson</strong>
+                                <span>Cardiologist</span>
+                            </div>
+                        </div>
+                    </div><!--end-slide-->
+                    <!--**1***-->
+                    <div class="swiper-slide">
+                        <!--**box**-->
+                        <div class="team-box">
+                            <!--img-->
+                            <div class="team-img">
+                               <a href="{{url_for('profile.get_profile',username='Dr. Michael Chang')}}"> <img alt="" src="{{url_for('static',filename='images/d2.png')}}"></a>
+                            </div>
+                            <!--text-->
+                            <div class="team-text">
+                                <strong>Dr. Michael Chang</strong>
+                                <span>Skin Specialist</span>
+                            </div>
+                        </div>
+                    </div><!--end-slide-->
+                    <!--**1***-->
+                    <div class="swiper-slide">
+                        <!--**box**-->
+                        <div class="team-box">
+                            <!--img-->
+                            <div class="team-img">
+                                <a href="{{url_for('profile.get_profile',username='Dr. Anthony Rodriguez')}}"><img alt="" src="{{url_for('static',filename='images/d3.png')}}"></a>
+                            </div>
+                            <!--text-->
+                            <div class="team-text">
+                                <strong>Dr. Anthony Rodriguez </strong>
+                                <span>Dermatologist</span>
+                            </div>
+                        </div>
+                    </div><!--end-slide-->
+                    <!--**1***-->
+                    <div class="swiper-slide">
+                        <!--**box**-->
+                        <div class="team-box">
+                            <!--img-->
+                            <div class="team-img">
+                                <a href="{{url_for('profile.get_profile',username='Dr. Paradox Alex')}}"><img alt="" src="{{url_for('static',filename='images/d1.png')}}"></a>
+                            </div>
+                            <!--text-->
+                            <div class="team-text">
+                                <strong>Dr. Paradox Alex</strong>
+                                <span>Orthopedic Surgeon</span>
+                            </div>
+                        </div>
+                    </div><!--end-slide-->
+                    <!--**1***-->
+                    <div class="swiper-slide">
+                        <!--**box**-->
+                        <div class="team-box">
+                            <!--img-->
+                            <div class="team-img">
+                               <a href="{{url_for('profile.get_profile',username='Dr. Emily Davis ')}}"><img alt="" src="{{url_for('static',filename='images/d5.png')}}"></a>
+                            </div>
+                            <!--text-->
+                            <div class="team-text">
+                                <strong>Dr. Emily Davis </strong>
+                                <span>Neurologist</span>
+                            </div>
+                        </div>
+                    </div><!--end-slide-->
+                </div><!--wrapper-end-->
+                <div class="swiper-pagination"></div>
+                </div><!--swiper-end-->
+    
+                
+            
+            </div>
+    
+        </section><!--team-end-->
+    
+    
+    
+        <!--==Testimonials============================-->
+        <section id="testimonials">
+    
+            <!--**heading****************-->
+            <div class="testimonials-heading">
+                <h3>Our Patients FeedBack About Us</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia voluptates cupiditate, rerum rem odio fugit</p>
+            </div>
+    
+    
+            <!--**testimonials-Content****-->
+            <div class="testimonials-content">
+    
+                <!--**img************-->
+                <div class="testimonials-img">
+                    <img alt="" src="{{url_for('static',filename='images/testimonials-img.png')}}">
+                </div>
+    
+                <!--**box-container**-->
+                <div class="testimonials-box-container">
+    
+                <!-- Swiper -->
+                <div class="swiper mySwipertesti">
+                <div class="swiper-wrapper">
+                    <!--**1***********-->
+                    <div class="swiper-slide">
+                    <!--**box**-->
+                    <div class="testimonials-box">
+                        <!--profile-->
+                        <div class="t-profile">
+                            <!--img-->
+                            <div class="t-profile-img">
+                                <img alt="" src="{{url_for('static',filename='images/t1.jpg')}}">
+                            </div>
+                            <!--text-->
+                            <div class="t-profile-text">
+                                <strong>Client Name</strong>
+                                <span>From China</span>
+                                <div class="t-rating">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <!--feedback-->
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa est odit dicta sequi labore perferendis ut veritatis expedita, nihil sint! Delectus aut id voluptatibus nemo dolorum, quos consequatur commodi repudiandae?</p>
+                    </div><!--box-end-->
+                </div><!--slide-end-->
+    
+                <!--**2***********-->
+                <div class="swiper-slide">
+                    <!--**box**-->
+                    <div class="testimonials-box">
+                        <!--profile-->
+                        <div class="t-profile">
+                            <!--img-->
+                            <div class="t-profile-img">
+                                <img alt="" src="{{url_for('static',filename='images/t1.jpg')}}">
+                            </div>
+                            <!--text-->
+                            <div class="t-profile-text">
+                                <strong>Client Name</strong>
+                                <span>From China</span>
+                                <div class="t-rating">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <!--feedback-->
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa est odit dicta sequi labore perferendis ut veritatis expedita, nihil sint! Delectus aut id voluptatibus nemo dolorum, quos consequatur commodi repudiandae?</p>
+                    </div><!--box-end-->
+                </div><!--slide-end-->
+    
+                <!--**3***********-->
+                <div class="swiper-slide">
+                    <!--**box**-->
+                    <div class="testimonials-box">
+                        <!--profile-->
+                        <div class="t-profile">
+                            <!--img-->
+                            <div class="t-profile-img">
+                                <img alt="" src="{{url_for('static',filename='images/t1.jpg')}}">
+                            </div>
+                            <!--text-->
+                            <div class="t-profile-text">
+                                <strong>Client Name</strong>
+                                <span>From China</span>
+                                <div class="t-rating">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <!--feedback-->
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa est odit dicta sequi labore perferendis ut veritatis expedita, nihil sint! Delectus aut id voluptatibus nemo dolorum, quos consequatur commodi repudiandae?</p>
+                    </div><!--box-end-->
+                </div><!--slide-end-->
+                
+                </div><!--wrapper-end-->
+                <div class="swiper-pagination"></div>
+                </div><!--swiper-end-->
+    
+                </div><!--container-end-->
+            
+            </div><!--content-end-->
+    
+        </section><!--testimonials-end-->
+    
+    
+    
+        <!--==Subscribe===========================-->
+    
+        <footer>
+            <div class="footer-container">
+                <!--**comoany-box**-->
+                <div class="footer-company-box">
+                    <!--logo-->
+                    <a href="#" class="logo"><span>ta</span>bibi</a>
+                    <!--details-->
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi quas neque repudiandae nihil.</p>
+                    <!--social-box-->
+                    <div class="footer-social">
+                        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+                <!--**link-box***-->
+                <div class="footer-link-box">
+                    <strong>Main Link's</strong>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Portfolio</a></li>
+                    </ul>
+                </div>
+                <!--**link-box***-->
+                <div class="footer-link-box">
+                    <strong>External Link's</strong>
+                    <ul>
+                        <li><a href="#">Our Product's</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Disclaimer</a></li>
+                        <li><a href="#">Trem's and Condition's</a></li>
+                    </ul>
+                </div>
+                <!--**link-box***-->
+                <div class="footer-link-box">
+                    <strong>External Link's</strong>
+                    <ul>
+                        <li><a href="#">Our Product's</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Disclaimer</a></li>
+                        <li><a href="#">Trem's and Condition's</a></li>
+                    </ul>
+                </div>
+                
+       
+            </div>
+    
+            <!--**bottom**********************-->
+            <div class="footer-bottom">
+                
+                <span class="copyright">&#169; Copyright 2024 -  Tabibi Ai Health Assistant</span>
+            </div>
+        </footer>
+    
+    
+    
+        <!-- Swiper JS -->
+        <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    
+        <!-- Initialize Swiper -->
+        <script>
+        /*-services--*/
+        var swiper = new Swiper(".mySwiperservices", {
+            slidesPerView: 1,
+            spaceBetween: 10,
+            navigation: {
+              nextEl: ".swiper-button-next",
+              prevEl: ".swiper-button-prev",
+            },
+            breakpoints: {
+              700: {
+                slidesPerView: 2,
+                spaceBetween: 40,
+              },
+              1024: {
+                slidesPerView: 3,
+                spaceBetween: 50,
+              },
+            },
+          });
+        /*--team--*/
+        var swiper = new Swiper(".mySwiperteam", {
+            slidesPerView: 1,
+            spaceBetween: 10,
+            pagination: {
+              el: ".swiper-pagination",
+              clickable: true,
+            },
+            breakpoints: {
+              560: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+              },
+              950: {
+                slidesPerView: 3,
+                spaceBetween: 40,
+              },
+              1250: {
+                slidesPerView: 4,
+                spaceBetween: 40,
+              },
+            },
+          });
+        /*--testimonials--*/
+          var swiper = new Swiper(".mySwipertesti", {
+            pagination: {
+              el: ".swiper-pagination",
+            },
+          });
+        </script>
+    
+    </body>
+    </html>

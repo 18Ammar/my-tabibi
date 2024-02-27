@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+    <title>Create an Article</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="{{url_for('static',filename='chat_ai.css')}}">
+    
+
+</head>
+<style>
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: -webkit-linear-gradient(to right, rgb(40, 59, 34), rgb(54, 60, 70), #0d3e3e);
+    background: linear-gradient(to right, #008b8b, rgb(50, 55, 65), #0b3b3b);
+}
+a{
+    text-decoration: none;
+}
+ul{
+    list-style: none;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 7px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px rgb(233, 233, 233); 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgb(56, 56, 56); 
+    border-radius: 10px;
+  }
+  .chat-sidebar-profile-dropdown {
+    position: absolute;
+    bottom: 100%;
+    left: 16px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .1);
+    list-style-type: none;
+    border-radius: 4px;
+    padding: 4px 0;
+    opacity: 0;
+    width: 100px;
+    visibility: hidden;
+    transform: scale(.9);
+    transform-origin: left bottom;
+    transition: all .15s ease-in-out;
+}
+.chat-sidebar-profile.active .chat-sidebar-profile-dropdown {
+    width: 100px;
+
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+}
+.chat-sidebar-profile-dropdown a {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    text-decoration: none;
+    color: #6b7280;
+    font-size: 14px;
+}
+.chat-sidebar-profile-dropdown a:hover {
+    background-color: #f3f4f6;
+    color: #4b5563;
+}
+.chat-sidebar-profile-dropdown a:active {
+    background-color: #edf2f7;
+}
+.chat-sidebar-profile-dropdown a i {
+    margin-right: 12px;
+    font-size: 17px;
+}
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #1b1b1b; 
+  }
+
+.navigation{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    width: 90%;
+}
+.logo{
+    color:#122853;
+    font-weight: 700;
+    font-size: 1.4rem;
+    margin-left: 20px;
+}
+.logo span{
+    background-color: #014dd5;
+    color: #ffffff;
+    padding: 0px 5px;
+    border-radius: 5px;
+    font-weight: 600;
+    margin-right: 5px;
+}
+header{
+    height: 80px;
+    background: -webkit-linear-gradient(to right, rgb(40, 59, 34), rgb(54, 60, 70), #0d3e3e);
+    background: linear-gradient(to right, #008b8b, rgb(50, 55, 65), #0b3b3b);
+    color: #fff;
+}
+
+.menu{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: auto;
+    margin-left: 60%;
+}
+
+.menu li a{
+    padding-left: 30px ;
+    width: 90px;
+    color:#fafdfe;
+    font-weight: 500;
+    transition: all ease 0.3s;
+}
+
+.menu li a:hover{
+    color: #014dd5;
+}
+
+section {
+    padding: 2em;
+    text-align: center;
+}
+
+form {
+    background-color: #FFF;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    border-radius: 2px;
+    padding: 2em;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #555;
+}
+
+input {
+    padding: 12px;
+    margin-bottom: 20px;
+    border: none;
+    border-bottom: 1px solid #AAA;
+    font-size: 15px;
+    transition: border-color 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+input:hover, input:focus {
+    border-bottom: 2px solid #16a085;
+    color: #16a085;
+}
+
+select {
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #AAA;
+    font-size: 15px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+textarea {
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #AAA;
+    font-size: 15px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    background-color: #008b8b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #00ced1;
+}
+
+
+
+.toggle-link {
+    text-align: center;
+    margin-bottom: 20px;
+}
+#articleForm{
+    margin-top:4% ;
+}
+#imageUpload {
+    margin-top: 20px;
+}
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap");
+
+body {
+    font-family: "Quicksand", sans-serif;
+    background: #7f7fd5;
+    background: linear-gradient(to right, #05beb2, #4e77c2, #1d6867);
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1500px;
+    margin-block: 2rem;
+    gap: 2rem;
+    position: relative; /* Add relative positioning */
+}
+
+img {
+    max-width: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    width:450px;
+    overflow: hidden;
+    box-shadow: 0 .1rem 1rem rgba(0, 0, 0, 0.1);
+    border-radius: 1em;
+    background:rgba(21, 57, 63, 0.721);
+    color: white;
+    position: relative; /* Add relative positioning */
+}
+
+.card__header {
+    position: relative;
+    
+}
+
+.card__header .post-dropdown-menu {
+    position: absolute;
+    top: 10px; /* Adjust as needed */
+    right: 10px; /* Adjust as needed */
+    cursor: pointer;
+}
+
+.card__header .post-dropdown-menu .menu-icon {
+    cursor: pointer;
+    position: relative;
+}
+
+.card__header .post-dropdown-menu .menu-icon .nav-icon {
+    background-color: #181818;
+    display: block;
+    position: relative;
+    height: 2px;
+    transition: background 0.2s ease-out;
+    width: 25px;
+}
+
+.card__header .post-dropdown-menu .menu-icon .nav-icon::before,
+.card__header .post-dropdown-menu .menu-icon .nav-icon::after {
+    background-color: #181818;
+    content: '';
+    position: absolute;
+    height: 100%;
+    transition: all ease-out 0.2s;
+    width: 100%;
+}
+
+.card__header .post-dropdown-menu .menu-icon .nav-icon::before {
+    top: 9px;
+}
+
+.card__header .post-dropdown-menu .menu-icon .nav-icon::after {
+    top: -9px;
+}
+
+.card__header .post-dropdown-menu .menu-icon.checked .nav-icon {
+    background-color: transparent;
+}
+
+.card__header .post-dropdown-menu .menu-icon.checked .nav-icon::before {
+    transform: rotate(-45deg);
+    top: 0px;
+}
+
+.card__header .post-dropdown-menu .menu-icon.checked .nav-icon::after {
+    transform: rotate(45deg);
+    top: 0px;
+}
+
+.card__header .post-dropdown-menu .dropdown-menu {
+    position: absolute;
+    top: 35px; /* Adjust as needed */
+    right: 0;
+    background-color: #ffffff;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .1);
+    list-style-type: none;
+    padding: 4px 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .15s ease-in-out;
+}
+
+.card__header .post-dropdown-menu .menu-icon.checked + .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+}
+
+.card__body {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.tag {
+    align-self: flex-start;
+    padding: .25em .75em;
+    border-radius: 1em;
+    font-size: .75rem;
+}
+
+.tag + .tag {
+    margin-left: .5em;
+}
+
+.tag-blue {
+    background: #56CCF2;
+    background: linear-gradient(to bottom, #2F80ED, #56CCF2);
+    color: #fafafa;
+}
+
+.tag-brown {
+    background: #D1913C;
+    background: linear-gradient(to bottom, #FFD194, #D1913C);
+    color: #fafafa;
+}
+
+.tag-red {
+    background: #cb2d3e;
+    background: linear-gradient(to bottom, #ef473a, #cb2d3e);
+    color: #fafafa;
+}
+.card__body h4 {
+  font-size: 1.5rem;
+  text-transform: capitalize;
+}
+
+.card__footer {
+  display: flex;
+  padding: 1rem;
+  margin-top: auto;
+}
+
+
+
+.user__image {
+    padding: 10px 10px;
+  margin-left: 10px;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+}
+
+.user__info > small {
+  color: #666;
+
+}
+
+footer {
+    background-color: #008b8b;
+    color: white;
+    padding: 1em;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.menu-icon,
+.menu-btn{
+    display: none;
+}
+
+@media(max-width:950px){
+    .navigation{
+        justify-content: space-between;
+        padding: 30px 0px;
+        position: relative;
+        width: 24%;
+        padding: 20px;
+    }
+    .card{
+        width: 350px;
+        height: 580px;
+    }
+   
+    .user__image {
+  padding: 5px 5px 5px 5px;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+.user__info h5,.user__image{
+    display: inline;
+    padding: 1px;
+}
+    .logo{
+        z-index: 103;
+    }
+    .logo{
+        margin-right: auto;
+        margin-left: 20px;
+    }
+    .navigation .menu{
+        display: none;
+        position: absolute;
+        left: 0px;
+        top:100%;
+        background-color: #0d3e3e;
+        width: 100%;
+        padding: 0px;
+        margin: 0px;
+        z-index: 102;
+        box-shadow: 2px 30px 30px rgba(0,0,0,0.06);
+    }
+    .navigation .menu::after{
+        content: '';
+        position: absolute;
+        left: 0px;
+        top: -100%;
+        background-color: #0d3e3e;
+        width: 100%;
+        height: 100%;
+        color: white;
+    }
+    .navigation .menu li{
+        width:100%;
+        margin: 0px;
+        padding: 0px;
+    }
+    .navigation .menu li a{
+        width: 100%;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        margin: 0px;
+        padding: 30px 20px;
+    }
+    .menu-icon{
+        display: block;
+    }
+    .navigation .menu-icon{
+        cursor: pointer;
+        float: right;
+        padding: 10px 0px;
+        position: relative;
+        user-select: none;
+        z-index: 106;
+    }
+    .navigation .menu-icon .nav-icon{
+        background-color: #181818;
+        display: block;
+        position: relative;
+        height: 2px;
+        transition: background 0.2s ease-out;
+        width: 25px;
+    }
+    .navigation .menu-icon .nav-icon::before,
+    .navigation .menu-icon .nav-icon::after{
+        background-color: #181818;
+        content: '';
+        position: absolute;
+        height: 100%;
+        transition: all ease-out 0.2s;
+        width: 100%;
+    }
+
+    .navigation .menu-icon .nav-icon::before{
+        top: 9px;
+    }
+    .navigation .menu-icon .nav-icon::after{
+        top: -9px;
+    }
+    .navigation .menu-icon:checked ~ .menu-icon .nav-icon,
+    .navigation .menu-btn:checked ~ .menu-icon .nav-icon{
+        background-color: transparent;
+    }
+    .navigation .menu-btn:checked ~ .menu-icon .nav-icon::before{
+        transform: rotate(-45deg);
+        top: 0px;
+    }
+    .navigation .menu-btn:checked ~ .menu-icon .nav-icon::after{
+        transform: rotate(45deg);
+        top: 0px;
+    }
+ 
+    .navigation .menu-btn:checked ~ .menu{
+        display: block;
+    }
+
+    .what-we-provide{
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 20px;
+    }
+    #our_story{
+        grid-template-columns: 1fr;
+    }
+    .our-story-img img{
+        max-height: 400px;
+    }
+    .our-stroy-text{
+        padding: 30px;
+    }
+    #why-choose-us{
+        grid-template-columns: 1fr;
+    }
+    .testimonials-content{
+        grid-template-columns: 1fr;
+    }
+    .testimonials-img{
+        margin-right: auto;
+    }
+    .testimonials-img img{
+        width: 100%;
+    }
+}
+@media(max-width:620px){
+    .hero-text{
+        padding: 20px;
+    }
+    .hero-text h1,
+    .our-stroy-text h2,
+    .services-heading h2,
+    .why-choose-us-left h3,
+    .why-choose-us-right h3,
+    .our-team-heading h3,
+    .testimonials-heading h3{
+        font-size: 1.8rem;
+        line-height: 2.2rem;
+    }
+    .hero-text-btns{
+        flex-direction: column;
+    }
+    .hero-text-btns a{
+        width: 100%;
+        margin-top: 5px;
+    }
+    .appointment-search{
+        grid-template-columns: 1fr;
+    }
+    .appointment-search button{
+        height: 45px;
+    }
+    .what-we-provide{
+        grid-template-columns: 1fr;
+    }
+    .our-stroy-text{
+        padding: 20px 15px;
+    }
+    .story-numbers-box{
+        padding: 15px;
+    }
+    .story-numbers-box strong{
+        font-size: 1.4rem;
+    }
+    .why-choose-us-right,
+    .why-choose-us-left{
+        padding: 30px 20px;
+    }
+    .why-choose-box-container{
+        grid-template-columns: 1fr;}
+    #subscribe h3{
+        font-size: 1.4rem;
+        line-height: 1.8rem;
+    }
+    #subscribe{
+        padding: 20px;
+    }
+	 .footer-container{
+        grid-template-columns: 1fr;
+    }
+}
+@media(max-width:320px){
+    .nav-appointment-btn{
+        display: none;
+    }
+    .story-numbers-container{
+        grid-template-columns: 1fr;
+    }
+}
+
+</style>
+<body>
+    <header>
+        <nav class="navigation">
+            <!--**menu-btn*****-->
+            <input type="checkbox" class="menu-btn" id="menu-btn">
+            <label for="menu-btn" class="menu-icon">
+                <span class="nav-icon"></span>
+            </label>
+            <!--**logo*********-->
+            <a href="{{url_for('home.home')}}" class="logo"><span>ta</span>bibi</a>
+            <!--**menu*********-->
+            <ul class="menu">
+                <li><a class="anav" href="{{url_for('home.home')}}"><i class="fas fa-home"></i> Home</a></li>
+                <li><a class="anav" href="{{url_for('profile.user_profile')}}"><i class="fas fa-user"></i> Profile</a></li>
+                <li><a class="anav" href="{{url_for('chat.chat')}}"><i class="fas fa-comments"></i> Chat-Ai</a></li>
+                <li><a class="anav" href="#"><i class="fas fa-info-circle"></i> About</a></li>
+                {%if userId==current_user.id%}
+                <li>
+             
+                    <div id="toggleFormLink" class="toggle-link">
+                        <a href="#" onclick="toggleForm()" style="margin-top: 25px;"><i class="fas fa-pen"></i>New Post</a>
+                    </div>
+                </li>
+                {%endif%}  
+            </ul>
+           
+        </nav><!--nav-end-->
+    </header> 
+    {%if posts%}
+        {% for post in posts %} 
+    <div class="container">
+        
+        <div class="card">
+            <div class="card__header">
+                <div class="post-dropdown-menu">
+                    <input type="checkbox" id="post-dropdown-menu-btn-{{ post.id }}" class="menu-btn">
+                    <label for="post-dropdown-menu-btn-{{ post.id }}" class="menu-icon">
+                        <span class="nav-icon"></span>
+                    </label>
+                    <ul class="dropdown-menu" style="width: 100px;height:60px;">
+                        <li style="padding-bottom: 10px;"><a style="color: #008b8b;" href="{{url_for('profile.update_post',post_id = post.id)}}"><i class="ri-edit-line"></i> Edit</a></li>
+                        <li><a href="{{url_for('profile.delete_post',post_id = post.id)}}"><i class="ri-delete-bin-line"></i> Delete</a></li>
+                    </ul>
+                </div>
+                <div class="user__info" style="
+                    display: flex;
+                    align-items: center; ">
+                <img src="{{url_for('static',filename=post.author.image_file)}}" alt="user__image" class="user__image">
+                    <h5 style="margin: 0px;">{{ post.author.username }}</h5>
+                </div>
+
+                <a href="{{ url_for('browser.show_artical', post_id=post.id) }}">
+                    <img src="https://source.unsplash.com/600x400/?{{post.tag}}" alt="card__image" class="card__image"
+                        width="600">
+                </a>
+            <div class="card__body">
+                <span class="tag tag-blue">{{post.tag}}</span>
+                <h4>{{ post.title }}</h4>
+                <p>{{ post.content[:160]|safe }}... <a style="display:inline; color: #186180; text-decoration: underline;" href="{{ url_for('browser.show_artical', post_id=post.id) }}">read more</a></p>
+            </div>
+            </a><div class="card__footer">
+                        <small>{{ post.date_posted.strftime('%Y-%m-%d') }}</small>
+                    </div>     
+            </div>
+        </div>
+        </div>
+        {% endfor %}
+        {%else%}
+        <h1>there is no posts yet</h1>
+        {%endif%}
+    {%if current_user.id == userId %}
+    <form id="articleForm" method="POST" action="{{url_for('profile.user_post',userId = current_user.id)}}" style="display: none;" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+        <div class="form-group">
+            <label for="title">Title</label>
+            {{ form.title(class="form-control") }}
+        </div>
+        <div class="form-group">
+            <label for="content">Article Content</label>
+            {{ form.content(class="form-control", rows=8) }}
+        </div>
+        <div class="form-group">
+            <label for="want_image">Do you want to upload an image?</label>
+            <select id="wantImage" name="want_image" class="form-control" onchange="toggleImageUpload()">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+            <div id="chooseTag" style="display: none;">
+                <h3>If not, then we will choose an image associated with your subject</h3>
+                <label for="tag">Please write one word that describes your article like Microbiota</label>
+                {{ form.tag(class="form-control") }}
+            </div>
+        </div>
+        <div id="imageUpload" class="form-group" style="display: none;">
+            <label for="image">Upload Image</label>
+            {{ form.image(class="form-control-file") }}
+        </div>
+        <button type="submit">Create Article</button>
+    </form>
+    {%endif%}
+    <script>
+    function toggleForm() {
+        var form = document.getElementById('articleForm');
+        var link = document.getElementById('toggleFormLink');
+        var chooseTag = document.getElementById('chooseTag');
+        var container = document.querySelector('.container'); // Use querySelector to select the first matching element
+        var card = document.querySelector('.card'); // Use querySelector to select the first matching element
+
+        if (form.style.display === 'none') {
+            form.style.display = 'block';
+            container.style.display = 'none';
+            chooseTag.style.display = 'none'; 
+        } else {
+            form.style.display = 'none';
+
+            container.style.display = 'block'; // Show the container when hiding the form
+            link.style.display = 'block'; // Hide the link
+            chooseTag.style.display = 'block'; // Show the tag input when hiding the form
+        }
+    }
+
+    function toggleImageUpload() {
+        var wantImageSelect = document.getElementById('wantImage');
+        var imageUploadDiv = document.getElementById('imageUpload');
+        var chooseTag = document.getElementById('chooseTag');
+
+        if (wantImageSelect.value === 'yes') {
+            imageUploadDiv.style.display = 'block';
+            chooseTag.style.display = 'none';
+        } else {
+            imageUploadDiv.style.display = 'none';
+            chooseTag.style.display = 'block';
+        }
+    }
+   
+
+document.addEventListener('DOMContentLoaded', function() {
+            const dropdownMenus = document.querySelectorAll('.post-dropdown-menu');
+            
+            dropdownMenus.forEach(menu => {
+                const menuIcon = menu.querySelector('.menu-icon');
+                const dropdownMenu = menu.querySelector('.dropdown-menu');
+                const menuBtn = menu.querySelector('.menu-btn');
+                
+                menuIcon.addEventListener('click', function() {
+                    menuBtn.checked = !menuBtn.checked;
+                    menuIcon.classList.toggle('checked');
+                });
+                
+               
+            });
+        });
+    </script>
+</body>
+</html>

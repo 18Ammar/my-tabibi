@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Advancements in Targeted Therapies for CLL</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333; /* Default text color */
+        }
+        a{
+    text-decoration: none;
+}
+ul{
+    list-style: none;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 7px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px rgb(233, 233, 233); 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgb(56, 56, 56); 
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #1b1b1b; 
+  }
+/*==hero========================*/
+#hero{
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+}
+.navigation{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    width: 90%;
+    margin: 0px auto;
+    padding: 30px 0px;
+}
+.logo{
+    color:#122853;
+    font-weight: 700;
+    font-size: 1.4rem;
+}
+.logo span{
+    background-color: #014dd5;
+    color: #ffffff;
+    padding: 0px 5px;
+    border-radius: 5px;
+    font-weight: 600;
+    margin-right: 5px;
+}
+.menu{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: auto;
+    margin-left: 40px;
+}
+.menu li a{
+    margin: 0px 20px;
+    color:#9cd9ff;
+    font-weight: 500;
+    transition: all ease 0.3s;
+}
+.menu li a:hover{
+    color: #014dd5;
+}
+.nav-appointment-btn{
+    height: 45px;
+    padding: 0px 20px;
+    border-radius:4px;
+    background-color: #2a989c;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+}
+        .article {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .article__header {
+            text-align: center;
+        }
+
+        .article__image {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 5px 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .tag-blue {
+            background-color: #3498db;
+            color: #fff;
+        }
+
+        .article__body {
+            margin-top: 20px;
+        }
+
+        .article__body h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #333; /* Heading color */
+        }
+
+        .article__body p {
+            line-height: 1.6;
+            text-align: justify; /* Added text alignment */
+            color: #333; /* Default text color */
+        }
+
+        .important {
+            font-weight: bold;
+            color: #e74c3c; /* Color for important words */
+        }
+
+        .underline {
+            text-decoration: underline;
+        }
+
+        .highlight {
+            background-color: #ffeeba; /* Highlight color */
+            padding: 2px;
+            border-radius: 3px; /* Added border-radius for a softer look */
+        }
+
+        .article__footer {
+            margin-top: 20px;
+        }
+
+        .user {
+            display: flex;
+            align-items: center;
+        }
+
+        .user__image {
+            border-radius: 50%;
+            margin-right: 10px;
+            height: 100px;
+            width: 100px;
+            object-fit:cover; 
+            object-position: 30% ;
+            border-radius: 50%;
+        }
+
+        .user__info h5 {
+            margin: 0;
+        }
+
+        .user__info small {
+            color: #888;
+        }
+        .menu-icon,
+.menu-btn{
+    display: none;
+}
+
+@media(max-width:1200px){
+    .footer-container{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 40px;
+    }
+}
+@media(max-width:1050px){
+    .hero-content{
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+        margin: 50px auto;
+    }
+    .hero-text{
+        margin-bottom: 40px;
+        background-color: #ffffff;
+        padding: 30px;
+        margin-top: 0px;
+    }
+}
+
+@media(max-width:950px){
+    .navigation{
+        justify-content: space-between;
+        padding: 30px 0px;
+        position: relative;
+        width: 100%;
+        padding: 20px;
+    }
+    .logo,
+    .nav-appointment-btn{
+        z-index: 103;
+    }
+    .logo{
+        margin-right: auto;
+        margin-left: 20px;
+    }
+    .navigation .menu{
+        display: none;
+        position: absolute;
+        left: 0px;
+        top:100%;
+        background-color: #ffffff;
+        width: 100%;
+        padding: 0px;
+        margin: 0px;
+        z-index: 102;
+        box-shadow: 2px 30px 30px rgba(0,0,0,0.06);
+    }
+    .navigation .menu::after{
+        content: '';
+        position: absolute;
+        left: 0px;
+        top: -100%;
+        background-color: #ffffff;
+        width: 100%;
+        height: 100%;
+    }
+    .navigation .menu li{
+        width:100%;
+        margin: 0px;
+        padding: 0px;
+    }
+    .navigation .menu li a{
+        width: 100%;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        margin: 0px;
+        padding: 30px 20px;
+    }
+    .menu-icon{
+        display: block;
+    }
+    .navigation .menu-icon{
+        cursor: pointer;
+        float: right;
+        padding: 10px 0px;
+        position: relative;
+        user-select: none;
+        z-index: 106;
+    }
+    .navigation .menu-icon .nav-icon{
+        background-color: #181818;
+        display: block;
+        position: relative;
+        height: 2px;
+        transition: background 0.2s ease-out;
+        width: 25px;
+    }
+    .navigation .menu-icon .nav-icon::before,
+    .navigation .menu-icon .nav-icon::after{
+        background-color: #181818;
+        content: '';
+        position: absolute;
+        height: 100%;
+        transition: all ease-out 0.2s;
+        width: 100%;
+    }
+
+    .navigation .menu-icon .nav-icon::before{
+        top: 9px;
+    }
+    .navigation .menu-icon .nav-icon::after{
+        top: -9px;
+    }
+    .navigation .menu-icon:checked ~ .menu-icon .nav-icon,
+    .navigation .menu-btn:checked ~ .menu-icon .nav-icon{
+        background-color: transparent;
+    }
+    .navigation .menu-btn:checked ~ .menu-icon .nav-icon::before{
+        transform: rotate(-45deg);
+        top: 0px;
+    }
+    .navigation .menu-btn:checked ~ .menu-icon .nav-icon::after{
+        transform: rotate(45deg);
+        top: 0px;
+    }
+ 
+    .navigation .menu-btn:checked ~ .menu{
+        display: block;
+    }
+
+    .what-we-provide{
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 20px;
+    }
+    #our_story{
+        grid-template-columns: 1fr;
+    }
+    .our-story-img img{
+        max-height: 400px;
+    }
+    .our-stroy-text{
+        padding: 30px;
+    }
+    #why-choose-us{
+        grid-template-columns: 1fr;
+    }
+    .testimonials-content{
+        grid-template-columns: 1fr;
+    }
+    .testimonials-img{
+        margin-right: auto;
+    }
+    .testimonials-img img{
+        width: 100%;
+    }
+}
+@media(max-width:620px){
+    .hero-text{
+        padding: 20px;
+    }
+    .hero-text h1,
+    .our-stroy-text h2,
+    .services-heading h2,
+    .why-choose-us-left h3,
+    .why-choose-us-right h3,
+    .our-team-heading h3,
+    .testimonials-heading h3{
+        font-size: 1.8rem;
+        line-height: 2.2rem;
+    }
+    .hero-text-btns{
+        flex-direction: column;
+    }
+    .hero-text-btns a{
+        width: 100%;
+        margin-top: 5px;
+    }
+    .appointment-search{
+        grid-template-columns: 1fr;
+    }
+    .appointment-search button{
+        height: 45px;
+    }
+    .what-we-provide{
+        grid-template-columns: 1fr;
+    }
+    .our-stroy-text{
+        padding: 20px 15px;
+    }
+    .story-numbers-box{
+        padding: 15px;
+    }
+    .story-numbers-box strong{
+        font-size: 1.4rem;
+    }
+    .why-choose-us-right,
+    .why-choose-us-left{
+        padding: 30px 20px;
+    }
+    .why-choose-box-container{
+        grid-template-columns: 1fr;}
+    #subscribe h3{
+        font-size: 1.4rem;
+        line-height: 1.8rem;
+    }
+    #subscribe{
+        padding: 20px;
+    }
+	 .footer-container{
+        grid-template-columns: 1fr;
+    }
+}
+@media(max-width:320px){
+    .nav-appointment-btn{
+        display: none;
+    }
+    .story-numbers-container{
+        grid-template-columns: 1fr;
+    }
+}
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navigation">
+            <!--**menu-btn*****-->
+            <input type="checkbox" class="menu-btn" id="menu-btn">
+            <label for="menu-btn" class="menu-icon">
+                <span class="nav-icon"></span>
+            </label>
+            <!--**logo*********-->
+            <a href="{{url_for('home.home')}}" class="logo"><span>ta</span>bibi</a>
+            <!--**menu*********-->
+            <ul class="menu">
+                <li><a href="#our-team">Find A Doctor</a></li>
+                <li><a href="{{url_for('chat.chat')}}">Chat-Ai</a></li>
+                <li><a href="{{url_for('browser.show_content')}}">Artical</a></li>
+            </ul>
+            <!--**contact*******-->
+            <a href="{{url_for('sign_in.sign_in')}}" class="nav-appointment-btn">Sign in</a>
+        </nav><!--nav-end-->
+    </header>
+    <div class="article">
+        <div class="article__header">
+            <img src="https://source.unsplash.com/600x400/?{{post.tag}}" alt="article__image" class="article__image" width="600">
+        </div>
+        <div class="article__body">
+            <span class="tag tag-blue">{{post.tag}}</span>
+            <h1>{{post.title}}</h1>
+            <p style="white-space: pre-wrap;">{{post.content|safe}}</p>
+            <!-- Your full article content goes here -->
+        </div>
+        <div class="article__footer">
+            <div class="user">
+                <img src="{{url_for('static',filename=post.author.image_file)}}" alt="user__image" class="user__image">
+                <div class="user__info">
+                   <a href="{{url_for('profile.get_profile',username=post.author.username)}}"> <h5>{{post.author.username}}</h5></a>
+                    <small>{{post.date_posted.strftime('%Y-%m-%d')}}</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

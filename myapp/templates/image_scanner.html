@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notification Example</title>
+  <style>
+    /* Add some basic styling for the notification */
+    .notification {
+      display: none;
+      padding: 10px;
+      border: 1px solid #ccc;
+      background-color: #f2f2f2;
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Notification container -->
+<div id="notification" class="notification"></div>
+
+<!-- Input field and validation -->
+<input type="text" id="inputField" oninput="validateInput()">
+
+<script>
+  function validateInput() {
+    // Get the input field and notification element
+    var inputField = document.getElementById('inputField');
+    var notification = document.getElementById('notification');
+
+    // Check if the input has less than 8 characters
+    if (inputField.value.length < 8) {
+      // Set the message
+      notification.innerHTML = 'Please enter at least 8 characters.';
+
+      // Display the notification
+      notification.style.display = 'block';
+    } else {
+      // Hide the notification if the input is valid
+      notification.style.display = 'none';
+    }
+  }
+</script>
+
+</body>
+</html>

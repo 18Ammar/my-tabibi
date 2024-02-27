@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tabibi - Health Assistant | Sign Up</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='sign_up.css') }}">
+
+</head>
+
+<body>
+
+    <header>
+        <img src="{{ url_for('static', filename='tabibi.png') }}" class="logo">
+        <h1 style="margin-right: 38%;">tabibi - Health Assistant</h1>
+</header>
+    <section >
+        <div id="login-box" style=" background-color:  rgba(21, 59, 90, 0.9);">
+            <div class="left">
+                <h1 style="color: white;">Sign up</h1>
+                <form action="{{ url_for('sign_up.sign_up') }}" method="post">
+                    {{ form.csrf_token }}
+                    {{ form.username}}
+                    {% if form.username.errors %}
+                        <p class="error">{{ form.username.errors[0] }}</p>
+                    {% endif %}
+
+                   {{ form.email }}
+                    {% if form.email.errors %}
+                        <p class="error">{{ form.email.errors[0] }}</p>
+                    {% endif %}
+
+                    {{ form.password }}
+                    {% if form.password.errors %}
+                        <p class="error">{{ form.password.errors[0] }}</p>
+                    {% endif %}
+
+                    {{ form.confirm_password }}
+                    {% if form.confirm_password.errors %}
+                        <p class="error">{{ form.confirm_password.errors[0] }}</p>
+                    {% endif %}
+
+                    <input type="submit" name="signup_submit" value="Sign me up" />
+                </form>
+                
+            </div>
+
+            <div class="right">
+
+                <span class="loginwith">Sign in with<br />social network</span>
+
+                <button class="social-signin facebook">Log in with Facebook</button>
+                <button class="social-signin twitter">Log in with Twitter</button>
+                <button class="social-signin google">Log in with Google+</button>
+                <p style="margin-bottom: 5%;color: white;">Already have an account? <a style="color: #26bfa0;" href="{{ url_for('sign_in.sign_in') }}">Sign In</a></p>
+
+            </div>
+            <div class="or">OR</div>
+        </div>
+
+        
+    </section>
+
+    <footer>
+        &copy; 2024 tabibi - Health Assistant
+    </footer>
+
+</body>
+
+</html>
