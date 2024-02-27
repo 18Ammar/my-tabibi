@@ -3,6 +3,7 @@ import os
 
 app = Flask(__name__)
 
+
 app.secret_key = "thisissecrtkey"
 
 from appModule.home import home_bp
