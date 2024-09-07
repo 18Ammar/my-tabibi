@@ -1,130 +1,317 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-        <link rel="stylesheet" href="{{url_for('static',filename='browsing.css')}}">
-
-        <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-        <!--==Font-Awesome-for-icons=====-->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
-        <!-- Link Swiper's CSS -->
-        <link
-          rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"
-        />
-    <title>Health Assistant - Medical Content</title>
+	<link rel="stylesheet"
+		href="{{url_for('static',filename='browsing.css')}}">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+	<title>Home page</title>
 </head>
-
 <body>
-    <header>
-        <nav class="navigation">
-            <!--**menu-btn*****-->
-            <input type="checkbox" class="menu-btn" id="menu-btn">
-           <label for="menu-btn" class="menu-icon">
-                <span class="nav-icon"></span>
-            </label>
-            <!--**logo*********-->
-            <a href="{{url_for('home.home')}}" class="logo"><span>ta</span>bibi</a>
-            <!--**logo*********-->
-            <!--**menu*********-->
-            <ul class="menu">
-                <li class="navli"><a  href="{{url_for('home.home')}}"><i class="fas fa-home"></i> Home</a></li>
-                <li class="navli"><a  href="{{url_for('profile.user_profile')}}"><i class="fas fa-user"></i>Profile</a> </li>
-                <li class="navli"><a  href="{{url_for('chat.chat')}}" ><i class="fas fa-comments"></i> Chat-Ai</a></li>
-                <li class="navli"><a  href="#"><i class="fas fa-info-circle"></i>About</a></li>
-            </ul>
-           
-        </nav><!--nav-end-->
-    </header> 
-    
-    </header>
-    <div class="container">
-      {%for post in posts%}
-        <div class="card">
-          <div class="card__header">
-            <a href="{{url_for('browser.show_artical',post_id=post.id)}}">
-            <img src="https://source.unsplash.com/600x400/?{{post.tag}}" alt="card__image" class="card__image" width="600">
-          </div>
-          <div class="card__body">
-            <span class="tag tag-blue">{{post.tag}}</span>
-            <h4>{{post.title}}{{post.id}}</h4>
-            <p>{{post.content[:180]|safe }}...</p>
-          </div>
-        </a>
-          <div class="card__footer">
-            <div class="user">
-              <img src="{{url_for('static',filename=post.author.image_file)}}" alt="user__image" class="user__image">
-              <div class="user__info">
-                <h5>{{post.author.username}}</h5>
-                <small>{{post.date_posted.strftime('%Y-%m-%d')}}</small>
-              </div>
-            </div>
-          </div>
-        </div>
-      {%endfor%}
-      </div>
-<!-- ---------------------------------------------------------------------------- -->
 
-    <footer>
-        <div class="footer-container">
-            <!--**comoany-box**-->
-            <div class="footer-company-box">
-                <!--logo-->
-                <img src="{{ url_for('static', filename='tabibi.png') }}" class="logo">
-                <!--details-->
-                <p>tabibi AI Health Assistant is for informational purposes only. Don’t take any actions without a doctor’s validation or consultation.</p>
-                <!--social-box-->
-                <div class="footer-social">
-                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
-                </div>
-            </div>
-            <!--**link-box***-->
-            <div class="footer-link-box">
-                <strong>Main Link's</strong>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Contact</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#">Portfolio</a></li>
-                </ul>
-            </div>
-            <!--**link-box***-->
-            <div class="footer-link-box">
-                <strong>External Link's</strong>
-                <ul>
-                    <li><a href="#">Our Product's</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Disclaimer</a></li>
-                    <li><a href="#">Trem's and Condition's</a></li>
-                </ul>
-            </div>
-            <!--**link-box***-->
-            <div class="footer-link-box">
-                <strong>External Link's</strong>
-                <ul>
-                    <li><a href="#">Our Product's</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Disclaimer</a></li>
-                    <li><a href="#">Trem's and Condition's</a></li>
-                </ul>
-            </div>
-            
-   
-        </div>
+<!-- Our Header section Starts from here -->
+	<header>
+		<nav class="navbar">
+			<div class="container">
+				<div class="logo">
+          <a href="{{url_for('home.home')}}" class="logo"><span>ta</span>bibi</a>
+				</div>
+				<div class="searchbar">
+					<input type="text"
+						placeholder="Search">
+					<img src=
+"https://media.geeksforgeeks.org/wp-content/uploads/20220609093658/search-200x200.png"
+						height="18"
+						alt="img2">
+				</div>
+				<div class="nav-links">
 
-        <!--**bottom**********************-->
-        <div class="footer-bottom">
-            
-            <span class="copyright">&#169; Copyright 2024 -  Tabibi Ai Health Assistant</span>
-        </div>
-    </footer>
+					<ul class="nav-group">
+						<li class="nav-item">
+							<a href="#">
+								<i class="fas fa-home"></i>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="">
+								<i class="fab fa-facebook-messenger"></i>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="">
+								<i class="far fa-compass"></i>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="">
+								<i class="far fa-heart"></i>
+							</a>
+						</li>
+						<li class="nav-item">
+							<div class="action">
+								<div class="profile"
+									onclick="menuToggle()">
+									<a href="{{url_for('profile.user_profile')}}"><img src="{{url_for('static',filename=current_user.image_file)}}" alt=""></a>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</header>
+
+	<!-- Code for Showing the Status -->
+	<main>
+		<div class="container">
+			<div class="col-9">
+				<div class="statuses">
+					<div class="status">
+						<div class="image">
+							<img src="{{url_for('static',filename=current_user.image_file)}}" alt="">
+						</div>
+					</div>
+					<div class="status">
+						<div class="image">
+							<img src=
+"https://media.geeksforgeeks.org/wp-content/uploads/20220609093221/g2-200x200.jpg"
+								alt="img4">
+						</div>
+					</div>
+					<div class="status">
+						<div class="image">
+							<img src=
+"https://media.geeksforgeeks.org/wp-content/uploads/20220609093241/g3-200x200.png"
+								alt="img5">
+						</div>
+					</div>
+					<div class="status">
+						<div class="image">
+							<img src=
+"https://media.geeksforgeeks.org/wp-content/uploads/20220609093229/g-200x200.png"
+								alt="img6">
+						</div>
+					</div>
+					<div class="status">
+						<div class="image">
+							<img src=
+"https://media.geeksforgeeks.org/wp-content/uploads/20220609093221/g2-200x200.jpg"
+								alt="img7">
+						</div>
+					</div>
+					<div class="status">
+						<div class="image">
+							<img src=
+"https://media.geeksforgeeks.org/wp-content/uploads/20220609093221/g2-200x200.jpg"
+								alt="img8">
+						</div>
+					</div>
+				</div>
+			
+			<!-- Code for viewing the Post -->
+			{%if posts%} 
+				{%for post in posts%}
+
+					<div class="card">
+						<div class="top">
+							<div class="userDetails">
+								<div class="profilepic">
+									<div class="profile_img">
+										<div class="image">
+											<img src=
+											"{{url_for('static',filename=post.author.image_file)}}"
+												alt="img8">
+										</div>
+									</div>
+								</div>
+								<h3>{{post.author.username}}
+									<br>
+									<span>Iraq, Mosul</span>
+							</h3>
+							</div>
+							<div>
+								<span class="dot">
+									<i class="fas fa-ellipsis-h"></i>
+								</span>
+							</div>
+						</div>
+						<a href="{{url_for('browser.show_artical',post_id=post.id)}}">
+						<div class="imgBx">
+							{%if post.post_image%}
+							<img src="{{url_for('static',filename=post.post_image)}}" alt="card__image" class="card__image"
+								width="600">
+							{%else%}
+							<img src="https://source.unsplash.com/600x400/?{{post.tag}}" alt="card__image" class="card__image"width="600">
+							{%endif%}
+						</div>
+						</a>
+						<div class="bottom">
+							<div class="actionBtns">
+								<div class="left">
+									<span class="heart"
+										onclick="addlike()">
+										<a href="#"><i class="fas fa-heart" aria-label="Like"></i></a>
+										<a href="#"><i class="fas fa-comment" aria-label="Comment"></i></a>
+										<a href="#"><i class="fas fa-share" aria-label="Share Post"></i></a>
+									
+								</div>
+								<div class="right">
+									<a href=""><i class="fas fa-bookmark" aria-label="Save"></i></a>
+									
+								</div>
+							</div>
+							<a href="#">
+								<p class="likes">203 likes</p>
+
+							</a>
+							<h4>{{post.title}}</h4>
+							<p>{{post.content[:180]|safe }}...</p>
+						</div>
+					</div>
+				</div>
+				{%endfor%}
+				{%endif%}
+			<div class="col-3">
+				<div class="card">
+					<h4>Suggestions For You</h4>
+					<div class="top">
+						<div class="userDetails">
+							<div class="profilepic">
+								<div class="profile_img">
+									<div class="image">
+										<img src=
+"https://media.geeksforgeeks.org/wp-content/uploads/20220609093221/g2-200x200.jpg"
+											alt="img12">
+									</div>
+								</div>
+							</div>
+							<h3>ليث الجبوري<br>
+							<span>Follows You</span>
+							</h3>
+						</div>
+						<div>
+							<a href="#"
+							class="follow">follow
+							</a>
+						</div>
+					</div>
+					<div class="top">
+						<div class="userDetails">
+							<div class="profilepic">
+								<div class="profile_img">
+									<div class="image">
+										
+									</div>
+								</div>
+							</div>
+							<h3>احمد ذنون<br>
+							<span>Follows You</span>
+						</h3>
+						</div>
+						<div>
+							<a href="#"
+							class="follow">follow
+						</a>
+						</div>
+					</div>
+					<div class="top">
+						<div class="userDetails">
+							<div class="profilepic">
+								<div class="profile_img">
+									<div class="image">
+										<img src=
+"https://media.geeksforgeeks.org/wp-content/uploads/20220609093221/g2-200x200.jpg"
+											alt="img14">
+									</div>
+								</div>
+							</div>
+							<h3>سعد محمد <br>
+								<span>Followed by Keshav Agarwal</span>
+							</h3>
+						</div>
+						<div>
+							<a href="#"
+							class="follow">follow</a>
+						</div>
+					</div>
+					<div class="top">
+						<div class="userDetails">
+							<div class="profilepic">
+								<div class="profile_img">
+									<div class="image">
+										<img src=
+"https://media.geeksforgeeks.org/wp-content/uploads/20220609093229/g-200x200.png"
+											alt="img15">
+									</div>
+								</div>
+							</div>
+							<h3>اشرف حامد<br>
+							<span>Follows You</span>
+							</h3>
+						</div>
+						<div>
+							<a href="#"
+							class="follow">follow
+						</a>
+						</div>
+					</div>
+					<div class="top">
+						<div class="userDetails">
+							<div class="profilepic">
+								<div class="profile_img">
+									<div class="image">
+										<img src=
+"https://media.geeksforgeeks.org/wp-content/uploads/20220609093241/g3-200x200.png"
+											alt="img16"
+											class="cover">
+									</div>
+								</div>
+							</div>
+							<h3>يونس لقمان <br>
+								<span>Followed by Keshav Agarwal</span>
+							</h3>
+						</div>
+						<div>
+							<a href="#"
+							class="follow">follow
+							</a>
+						</div>
+					</div>
+				</div>
+			
+			<!-- Our Footer Section will start from Here -->
+				<div class="footer">
+					<a class="footer-section" href="#">About</a>
+					<a class="footer-section" href="#">Help</a>
+					<a class="footer-section" href="#">API</a>
+					<a class="footer-section" href="#">Jobs</a>
+					<a class="footer-section" href="#">Privacy</a>
+					<a class="footer-section" href="#">Terms</a>
+					<a class="footer-section" href="#">Locations</a>
+					<br>
+					<a class="footer-section" href="#">Top Accounts</a>
+					<a class="footer-section" href="#">Hashtag</a>
+					<a class="footer-section" href="#">Language</a>
+					<br><br>
+					<span class="footer-section">
+						© Copyright 2024 -  Tabibi Ai Health Assistant
+					</span>
+				</div>
+			</div>
+		</div>
+	</main>
 </body>
+<script>
+        document.querySelector('.chat-sidebar-profile-toggle').addEventListener('click', function(e) {
+    e.preventDefault()
+    this.parentElement.classList.toggle('active')
+})
 
+document.addEventListener('click', function(e) {
+    if(!e.target.matches('.chat-sidebar-profile, .chat-sidebar-profile *')) {
+        document.querySelector('.chat-sidebar-profile').classList.remove('active')
+    }
+})
+</script>
 </html>
