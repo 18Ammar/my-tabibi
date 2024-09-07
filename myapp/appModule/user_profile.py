@@ -56,6 +56,7 @@ def user_profile():
     post = Post.query.filter_by(user_id=current_user.id)
     return render_template('profile.html',posts=post, following_number=following_number, follower=follower_number)
 
+
 @profile.route('/profile/logout')
 @login_required
 def logout():
@@ -80,14 +81,19 @@ def update_profile():
             pass_hash = bcrypt.generate_password_hash(password).decode("utf-8")
             current_user.password = pass_hash
         if form.picPath.data:
+            # print(form.picPath.data)
             pic_file = form.picPath.data
             pic_filename = secure_filename(pic_file.filename)
-            pic_path = os.path.join("static//images//", pic_filename)
+            pic_path = os.path.join("..//static//images//", pic_filename)
+            print(pic_path)
             if os.path.exists(pic_path):
-                pic_path = pic_path[30:]
+                # print(pic_path)
+                # pic_path = pic_path[30:]
+                # print(pic_path)
                 current_user.image_file = str(pic_path)
-                print(pic_path)
+                
             else:
+                # print(pic_path)
                 pic_file.save(pic_path)
                 pic_path = pic_path[30:]
                 current_user.image_file =str(pic_path)
@@ -122,7 +128,26 @@ def user_post(userId):
         title = form.title.data
         content = form.content.data
         tag = form.tag.data
-        new_post = Post(title=title, content=content,tag=tag,author=current_user)
+        image = form.image.data
+        if image:
+            pic_filename = secure_filename(image.filename)
+            pic = os.path.join("..//static//images//", pic_filename)
+            print(pic)
+            if os.path.exists(pic):
+                # print(pic_path)
+                # pic_path = pic_path[30:]
+                # print(pic_path)
+                post.post_image = str(pic)
+
+                
+            else:
+                # print(pic_path)
+                image.save(pic)
+                pic_ = pic[30:]
+                post.post_image = str(pic)
+
+    
+        new_post = Post(title=title, content=content,tag=tag,author=current_user,image=image)
         db.session.add(new_post)
         db.session.commit()
     posts = Post.query.filter_by(user_id=int(userId)).all()
@@ -141,6 +166,26 @@ def update_post(post_id):
         post.title = form.title.data
         post.content = form.content.data
         post.tag = form.tag.data
+        
+        image = form.image.data
+        if image:
+            pic_filename = secure_filename(image.filename)
+            pic = os.path.join("..//static//images//", pic_filename)
+            print(pic)
+            if os.path.exists(pic):
+                # print(pic_path)
+                # pic_path = pic_path[30:]
+                # print(pic_path)
+                post.post_image = str(pic)
+
+                
+            else:
+                # print(pic_path)
+                image.save(pic)
+                pic_ = pic[30:]
+                post.post_image = str(pic)
+
+
         db.session.commit()
         flash('Post updated successfully!', 'success')
         return redirect(url_for("profile.user_post",userId=post.author.id))
