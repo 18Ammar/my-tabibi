@@ -257,8 +257,9 @@
         crossorigin="anonymous">
 
             import { io } from "https://cdn.socket.io/4.3.2/socket.io.esm.min.js"
-            const Socket = io("https://health-assistant-based-on-ai-3.onrender.com")
-
+            const Socket = io("https://health-assistant-based-on-ai-3.onrender.com", {
+    transports: ["websocket", "polling"] 
+});
             let current_user = "{{ current_user.username }}"
 
             // Listen for the "user_status" event
