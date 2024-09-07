@@ -135,13 +135,7 @@ main .container {
     justify-content: flex-start; /* Changed from space-between to flex-start */
 }
   
-  .col-9 {
-  width: 65%;
 
-  margin-top: 30px;
-  background-color: #131a1a;
-  }
-  
   .statuses {
   margin-bottom: 30px;
   width: 100%;
@@ -450,7 +444,9 @@ main .container {
   .hidden {
   display: none;
   }
-  
+  .col-3 {
+    display: none;
+  }
   @media screen and (max-width: 1000px) {
   .col-9 {
     width: 100%;
@@ -527,4 +523,56 @@ main .container {
   .footer a:hover {
   color: #ff0000;
   }
+  .col-9 {
+    width: 100%;
+    margin-top: 30px;
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-top: 30px;
+    background-color: #13191a;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers content horizontally */
+    justify-content: flex-start; /* Aligns content at the top, adjust as needed */
+}
+
+/* Ensure cards take full width of container and center content */
+.col-9 .card {
+    width: 100%;
+    max-width: 800px; /* Adjust max-width as needed */
+    margin-bottom: 20px;
+    border: 1px solid rgba(7, 7, 7, 0.24);
+}
+  .card__image{
+    padding-left: 50px;
+    width: 60%;
+    object-fit: cover;
+  }
   
+  
+  @media screen and (max-width: 1000px) {
+    .col-9 {
+      width: 100%;
+      background: #101010;
+
+    }
+  
+    .col-9 .card {
+      width: 100%; /* Ensures cards take full width of container */
+      margin-bottom: 20px; /* Space between cards */
+    }
+  }
+  
+  @media screen and (max-width: 1000px) {
+    .col-9 {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .col-9 {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
