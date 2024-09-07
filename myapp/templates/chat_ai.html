@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="{{url_for('static',filename='chat_ai.css')}}">
     <title>Chat</title>
 </head>
+
 <body>
     <!-- start: Chat -->
     <section class="chat-section">
@@ -17,8 +19,10 @@
                     <i class="ri-chat-1-fill"></i>
                 </a>
                 <ul class="chat-sidebar-menu">
-                    <li class="active"><a href="{{url_for('home.home')}}" data-title="Home"><i class="ri-home-line"></i></a></li>
-                    <li><a href="{{url_for('browser.show_content')}}" data-title="Article"><i class="ri-file-line"></i></a></li>
+                    <li class="active"><a href="{{url_for('home.home')}}" data-title="Home"><i
+                                class="ri-home-line"></i></a></li>
+                    <li><a href="{{url_for('browser.show_content')}}" data-title="Article"><i
+                                class="ri-file-line"></i></a></li>
                     <li><a href="#" data-title="Documents"><i class="ri-folder-line"></i></a></li>
                     <li><a href="#" data-title="Settings"><i class="ri-settings-line"></i></a></li>
                     <li class="chat-sidebar-profile">
@@ -26,8 +30,10 @@
                             <img src="{{url_for('static',filename=current_user.image_file)}}" alt="">
                         </button>
                         <ul class="chat-sidebar-profile-dropdown">
-                            <li><a href="{{url_for('profile.user_profile')}}"><i class="ri-user-line"></i> Profile</a></li>
-                            <li><a href="{{url_for('profile.logout')}}"><i class="ri-logout-box-line"></i> Logout</a></li>
+                            <li><a href="{{url_for('profile.user_profile')}}"><i class="ri-user-line"></i> Profile</a>
+                            </li>
+                            <li><a href="{{url_for('profile.logout')}}"><i class="ri-logout-box-line"></i> Logout</a>
+                            </li>
                         </ul>
                     </li>
                 </ul>
@@ -40,14 +46,16 @@
                     <div class="content-sidebar-title">Chats</div>
                     <form action="" class="content-sidebar-form">
                         <input type="search" class="content-sidebar-input" placeholder="Search...">
-                        <button title=".." type="submit" class="content-sidebar-submit"><i class="ri-search-line"></i></button>
+                        <button title=".." type="submit" class="content-sidebar-submit"><i
+                                class="ri-search-line"></i></button>
                     </form>
-                    
+
                     <div class="content-messages">
                         <ul class="content-messages-list">
                             <li>
                                 <a href="#" data-conversation="#conversation-1" class="chat_bot" id=1>
-                                    <img class="content-message-image" src="{{url_for('static',filename='tabibi.png')}}" alt="">
+                                    <img class="content-message-image" src="{{url_for('static',filename='tabibi.png')}}"
+                                        alt="">
                                     <span class="content-message-info">
                                         <span class="content-message-name">tabibi</span>
                                     </span>
@@ -59,7 +67,8 @@
                             <!-- Update the HTML template for each user -->
                             <li>
                                 <a href="#" data-conversation="#conversation-1">
-                                    <img class="content-message-image" src="{{ url_for('static', filename=cont.contact.image_file) }}" alt="">
+                                    <img class="content-message-image"
+                                        src="{{ url_for('static', filename=cont.contact.image_file) }}" alt="">
                                     <span class="content-message-info">
                                         <span class="content-message-name">{{ cont.contact.username }}</span>
                                         <!-- Display user status circle -->
@@ -69,18 +78,18 @@
                                 </a>
                             </li>
 
-                                {% endfor %}
-                            </ul>
+                            {% endfor %}
+                        </ul>
                     </div>
-                    
 
-                            
-                        
-                    
-                    
-               
-                
-                
+
+
+
+
+
+
+
+
                 </div>
                 <!-- end: Content side -->
                 <!-- start: Conversation -->
@@ -90,9 +99,11 @@
                 </div>
                 <div class="conversation" id="conversation-1">
                     <div class="conversation-top">
-                        <button type="button" title=".." class="conversation-back"><i class="ri-arrow-left-line"></i></button>
+                        <button type="button" title=".." class="conversation-back"><i
+                                class="ri-arrow-left-line"></i></button>
                         <div class="conversation-user">
-                            <img class="conversation-user-image" src="{{url_for('static',filename='tabibi.png')}}" alt="">
+                            <img class="conversation-user-image" src="{{url_for('static',filename='tabibi.png')}}"
+                                alt="">
                             <div>
                                 <div class="conversation-user-name">tabibi</div>
                                 <span class="conversation-user-status online"></span>
@@ -109,19 +120,25 @@
                         </ul>
                     </div>
                     <div class="conversation-form">
-                        <button title=".." type="button" class="conversation-form-button"><i class="ri-emotion-line"></i></button>
+                        <button title=".." type="button" class="conversation-form-button"><i
+                                class="ri-emotion-line"></i></button>
                         <div class="conversation-form-group">
                             <textarea class="conversation-form-input" rows="1" placeholder="Type here..."></textarea>
-                            <button title=".." type="button" class="conversation-form-record"><i class="ri-mic-line"></i></button>
+                            <button title=".." type="button" class="conversation-form-record"><i
+                                    class="ri-mic-line"></i></button>
                         </div>
-                        <button title=".." type="button" class="conversation-form-button conversation-form-submit"><i class="ri-send-plane-2-line"></i></button>
+                        <button title=".." type="button" class="conversation-form-button conversation-form-submit"><i
+                                class="ri-send-plane-2-line"></i></button>
                     </div>
                 </div>
                 <div class="conversation" id="conversation-2">
                     <div class="conversation-top">
-                        <button title=".." type="button" class="conversation-back"><i class="ri-arrow-left-line"></i></button>
+                        <button title=".." type="button" class="conversation-back"><i
+                                class="ri-arrow-left-line"></i></button>
                         <div class="conversation-user">
-                            <img class="conversation-user-image" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8cGVvcGxlfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60" alt="">
+                            <img class="conversation-user-image"
+                                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8cGVvcGxlfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60"
+                                alt="">
                             <div>
                                 <div class="conversation-user-name">tabibi</div>
                                 <div class="conversation-user-status online">online</div>
@@ -133,14 +150,18 @@
                             <button title=".." type="button"><i class="ri-information-line"></i></button>
                         </div>
                     </div>
-                    
+
                     <div class="conversation-form">
-                        <button title=".." type="button" class="conversation-form-button"><i class="ri-emotion-line"></i></button>
+                        <button title=".." type="button" class="conversation-form-button"><i
+                                class="ri-emotion-line"></i></button>
                         <div class="conversation-form-group">
                             <textarea class="conversation-form-input" rows="1" placeholder="Type here..."></textarea>
-                            <button title=".." type="submit" class="conversation-form-record"><i class="ri-mic-line"></i></button>
+                            <button title=".." type="submit" class="conversation-form-record"><i
+                                    class="ri-mic-line"></i></button>
                         </div>
-                        <button title=".." type="submit" id="send" class="conversation-form-button conversation-form-submit"><i class="ri-send-plane-2-line"></i></button>
+                        <button title=".." type="submit" id="send"
+                            class="conversation-form-button conversation-form-submit"><i
+                                class="ri-send-plane-2-line"></i></button>
                     </div>
                 </div>
                 <!-- end: Conversation -->
@@ -149,258 +170,259 @@
         </div>
     </section>
     <!-- end: Chat -->
-    
-    <script >
+
+    <script>
         // start: Sidebar
-document.querySelector('.chat-sidebar-profile-toggle').addEventListener('click', function(e) {
-    e.preventDefault()
-    this.parentElement.classList.toggle('active')
-})
+        document.querySelector('.chat-sidebar-profile-toggle').addEventListener('click', function (e) {
+            e.preventDefault()
+            this.parentElement.classList.toggle('active')
+        })
 
-document.addEventListener('click', function(e) {
-    if(!e.target.matches('.chat-sidebar-profile, .chat-sidebar-profile *')) {
-        document.querySelector('.chat-sidebar-profile').classList.remove('active')
-    }
-})
-// end: Sidebar
+        document.addEventListener('click', function (e) {
+            if (!e.target.matches('.chat-sidebar-profile, .chat-sidebar-profile *')) {
+                document.querySelector('.chat-sidebar-profile').classList.remove('active')
+            }
+        })
+        // end: Sidebar
 
 
 
-// start: Coversation
-document.querySelectorAll('.conversation-item-dropdown-toggle').forEach(function(item) {
-    item.addEventListener('click', function(e) {
-        e.preventDefault()
-        if(this.parentElement.classList.contains('active')) {
-            this.parentElement.classList.remove('active')
-        } else {
-            document.querySelectorAll('.conversation-item-dropdown').forEach(function(i) {
-                i.classList.remove('active')
+        // start: Coversation
+        document.querySelectorAll('.conversation-item-dropdown-toggle').forEach(function (item) {
+            item.addEventListener('click', function (e) {
+                e.preventDefault()
+                if (this.parentElement.classList.contains('active')) {
+                    this.parentElement.classList.remove('active')
+                } else {
+                    document.querySelectorAll('.conversation-item-dropdown').forEach(function (i) {
+                        i.classList.remove('active')
+                    })
+                    this.parentElement.classList.add('active')
+                }
             })
-            this.parentElement.classList.add('active')
-        }
-    })
-})
-
-
-document.addEventListener('click', function(e) {
-    if(!e.target.matches('.conversation-item-dropdown, .conversation-item-dropdown *')) {
-        document.querySelectorAll('.conversation-item-dropdown').forEach(function(i) {
-            i.classList.remove('active')
         })
-    }
-})
 
-document.querySelectorAll('.conversation-form-input').forEach(function(item) {
-    item.addEventListener('input', function() {
-        this.rows = this.value.split('\n').length
-    })
-})
 
-document.querySelectorAll('[data-conversation]').forEach(function(item) {
-    item.addEventListener('click', function(e) {
-        e.preventDefault()
-        document.querySelectorAll('.conversation').forEach(function(i) {
-            i.classList.remove('active')
+        document.addEventListener('click', function (e) {
+            if (!e.target.matches('.conversation-item-dropdown, .conversation-item-dropdown *')) {
+                document.querySelectorAll('.conversation-item-dropdown').forEach(function (i) {
+                    i.classList.remove('active')
+                })
+            }
         })
-        document.querySelector(this.dataset.conversation).classList.add('active')
-    })
-})
 
-document.querySelectorAll('.conversation-back').forEach(function(item) {
-    item.addEventListener('click', function(e) {
-        e.preventDefault()
-        this.closest('.conversation').classList.remove('active')
-        document.querySelector('.conversation-default').classList.add('active')
-    })
-})
+        document.querySelectorAll('.conversation-form-input').forEach(function (item) {
+            item.addEventListener('input', function () {
+                this.rows = this.value.split('\n').length
+            })
+        })
 
-document.querySelectorAll('.content-messages-list li').forEach(function(item) {
-    item.addEventListener('click', function(e) {
-        e.preventDefault();
-        var conversationId = this.querySelector('a').getAttribute('data-conversation');
-        var conversation = document.querySelector(conversationId);
-        
-        // Hide all conversations
-        document.querySelectorAll('.conversation').forEach(function(conversation) {
-            conversation.classList.remove('active');
+        document.querySelectorAll('[data-conversation]').forEach(function (item) {
+            item.addEventListener('click', function (e) {
+                e.preventDefault()
+                document.querySelectorAll('.conversation').forEach(function (i) {
+                    i.classList.remove('active')
+                })
+                document.querySelector(this.dataset.conversation).classList.add('active')
+            })
+        })
+
+        document.querySelectorAll('.conversation-back').forEach(function (item) {
+            item.addEventListener('click', function (e) {
+                e.preventDefault()
+                this.closest('.conversation').classList.remove('active')
+                document.querySelector('.conversation-default').classList.add('active')
+            })
+        })
+
+        document.querySelectorAll('.content-messages-list li').forEach(function (item) {
+            item.addEventListener('click', function (e) {
+                e.preventDefault();
+                var conversationId = this.querySelector('a').getAttribute('data-conversation');
+                var conversation = document.querySelector(conversationId);
+
+                // Hide all conversations
+                document.querySelectorAll('.conversation').forEach(function (conversation) {
+                    conversation.classList.remove('active');
+                });
+
+                // Show the selected conversation
+                conversation.classList.add('active');
+            });
         });
-
-        // Show the selected conversation
-        conversation.classList.add('active');
-    });
-});
 
 
     </script>
-     <script type="module" integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+" crossorigin="anonymous">
-    
-    import {io} from "https://cdn.socket.io/4.3.2/socket.io.esm.min.js"
-    const Socket = io("https://health-assistant-based-on-ai-3.onrender.com")
-    
-    let current_user = "{{ current_user.username }}"
+    <script type="module" integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+"
+        crossorigin="anonymous">
 
-    // Listen for the "user_status" event
-    Socket.on("user_status", function(data) {
-        const statusElement = document.querySelector(".conversation-user-status");
+            import { io } from "https://cdn.socket.io/4.3.2/socket.io.esm.min.js"
+            const Socket = io("https://health-assistant-based-on-ai-3.onrender.com")
 
-        if (statusElement) {
-            if (data.status === "online"){
-                statusElement.textContent = "active now";
-                statusElement.style.color = "#0cd849";
-            }
-            else if (data.status === "offline"){
-                statusElement.textContent = "offline";
-                statusElement.style.color = "#c62121";
+            let current_user = "{{ current_user.username }}"
 
-            }                
-        }
-        
-    });
+            // Listen for the "user_status" event
+            Socket.on("user_status", function (data) {
+                const statusElement = document.querySelector(".conversation-user-status");
 
-    
-    Socket.on('new_message', function(data) {
-        const conversationWrapper = document.querySelector('.conversation-wrapper');
-        const strTime = new Date().toLocaleTimeString();
-        if (data.sender == current_user){
-        const messageHtml = '<li class="conversation-item">' +
-                            '<div class="conversation-item-side">' +
-                            '</div>' +
-                            '<div class="conversation-item-content">' +
-                            '<div class="conversation-item-wrapper">' +
-                            '<div class="conversation-item-box">' +
-                            '<div class="conversation-item-text">' +
-                            '<p>' + data.message + '</p>' +
-                            '<div class="conversation-item-time">' + strTime + '</div>' +
-                            '</div>' +
-                            '<div class="conversation-item-dropdown">' +
-                            '<button type="button" class="conversation-item-dropdown-toggle"><i class="ri-more-2-line"></i></button>' +
-                            '<ul class="conversation-item-dropdown-list">' +
-                            '<li><a href="#"><i class="ri-share-forward-line"></i> Forward</a></li>' +
-                            '<li><a href="#"><i class="ri-delete-bin-line"></i> Delete</a></li>' +
-                            '</ul>' +
-                            '</div>' +
-                            '</div>' +
-                            '</div>' +
-                            '</div>' +
-                            '</li>';
+                if (statusElement) {
+                    if (data.status === "online") {
+                        statusElement.textContent = "active now";
+                        statusElement.style.color = "#0cd849";
+                    }
+                    else if (data.status === "offline") {
+                        statusElement.textContent = "offline";
+                        statusElement.style.color = "#c62121";
 
-                conversationWrapper.innerHTML+=messageHtml;
-                
-                var conversationMain = document.querySelector('.conversation-main');
-                var scrollHeight = conversationMain.scrollHeight;
-                var animationDuration = 10000; 
-                conversationMain.style.transition = 'scrollTop ' + animationDuration + 'ms';
-                conversationMain.scrollTop = scrollHeight;
+                    }
+                }
 
-                            }
-                            else{
-                                
-                                var user_message = '<li class="conversation-item me">' +
-                                '<div class="conversation-item-side">' +
-                                '<img class="conversation-item-image" src="' + data.user_image + '" alt="">' +
-                                '</div>' +
-                                '<div class="conversation-item-content">' +
-                                '<div class="conversation-item-wrapper">' +
-                                '<div class="conversation-item-box">' +
-                                '<div class="conversation-item-text">' +
-                                '<p>' + data.message + '</p>' +
-                                '<div class="conversation-item-time">' + strTime + '</div>' +
-                                '</div>' +
-                                '<div class="conversation-item-dropdown">' +
-                                '<button type="button" class="conversation-item-dropdown-toggle"><i class="ri-more-2-line"></i></button>' +
-                                '<ul class="conversation-item-dropdown-list">' +
-                                '<li><a href="#"><i class="ri-share-forward-line"></i> Forward</a></li>' +
-                                '<li><a href="#"><i class="ri-delete-bin-line"></i> Delete</a></li>' +
-                                '</ul>' +
-                                '</div>' +
-                                '</div>' +
-                                '</div>' +
-                                '</div>' +
-                                '</li>';
-                                conversationWrapper.innerHTML+=user_message;
-                
-                                var conversationMain = document.querySelector('.conversation-main');
-                                var scrollHeight = conversationMain.scrollHeight;
-                                var animationDuration = 1000; 
-                                conversationMain.style.transition = 'scrollTop ' + animationDuration + 'ms';
-                                conversationMain.scrollTop = scrollHeight
-                            ;
+            });
 
-                            }
-    });
 
-     document.querySelectorAll('.content-messages-list li').forEach(function(item) {
-       item.addEventListener('click', function(e) {
-        e.preventDefault();
-        var conversationId = this.querySelector('a').getAttribute('data-conversation');
-        var conversation = document.querySelector(conversationId);
-        var contactName = this.querySelector('.content-message-name').textContent;
-        var contactImage = this.querySelector('.content-message-image').getAttribute('src');
-        let cn = contactName
-        // Update the conversation user name
-        console.log(contactName);
-        var conversationUserName = conversation.querySelector('.conversation-user-name');
-        conversationUserName.textContent = contactName;
-        
-        // Update the conversation user image
-        var conversationUserImage = conversation.querySelector('.conversation-user-image');
-        conversationUserImage.setAttribute('src', contactImage);
-        
-        // Hide all conversations
-        document.querySelectorAll('.conversation').forEach(function(conversation) {
-            conversation.classList.remove('active');
-        });
+            Socket.on('new_message', function (data) {
+                const conversationWrapper = document.querySelector('.conversation-wrapper');
+                const strTime = new Date().toLocaleTimeString();
+                if (data.sender == current_user) {
+                    const messageHtml = '<li class="conversation-item">' +
+                        '<div class="conversation-item-side">' +
+                        '</div>' +
+                        '<div class="conversation-item-content">' +
+                        '<div class="conversation-item-wrapper">' +
+                        '<div class="conversation-item-box">' +
+                        '<div class="conversation-item-text">' +
+                        '<p>' + data.message + '</p>' +
+                        '<div class="conversation-item-time">' + strTime + '</div>' +
+                        '</div>' +
+                        '<div class="conversation-item-dropdown">' +
+                        '<button type="button" class="conversation-item-dropdown-toggle"><i class="ri-more-2-line"></i></button>' +
+                        '<ul class="conversation-item-dropdown-list">' +
+                        '<li><a href="#"><i class="ri-share-forward-line"></i> Forward</a></li>' +
+                        '<li><a href="#"><i class="ri-delete-bin-line"></i> Delete</a></li>' +
+                        '</ul>' +
+                        '</div>' +
+                        '</div>' +
+                        '</div>' +
+                        '</div>' +
+                        '</li>';
 
-        // Show the selected conversation
-        conversation.classList.add('active');
-        console.log(cn);
- 
-        if (cn !== "tabibi") {
-            fetch('/get_messages', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                },
-                body: new URLSearchParams({
-                    'reciver': cn,
-                }),
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.message) {
-                    const strTime = new Date().toLocaleTimeString();
-                    var conversationWrapper = conversation.querySelector('.conversation-wrapper');
-                    conversationWrapper.innerHTML = '';
-                    data.message.forEach(message =>{
-                        if ("{{current_user.username}}" == message.sender) {
-        var my_msg = `<li class="conversation-item">
-            <div class="conversation-item-side"></div>
-            <div class="conversation-item-content">
-                <div class="conversation-item-wrapper">
-                    <div class="conversation-item-box">
-                        <div class="conversation-item-text">
-                            <p>${message.message}</p>
-                            <div class="conversation-item-time">${strTime}</div>
-                        </div>
-                        <div class="conversation-item-dropdown">
-                            <button type="button" class="conversation-item-dropdown-toggle"><i class="ri-more-2-line"></i></button>
-                            <ul class="conversation-item-dropdown-list">
-                                <li><a href="#"><i class="ri-share-forward-line"></i> Forward</a></li>
-                                <li><a href="#"><i class="ri-delete-bin-line"></i> Delete</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </li>`;
-        conversationWrapper.innerHTML += my_msg;
-        // Scroll to the bottom of the conversation wrapper
-            var conversationMain = document.querySelector('.conversation-main');
-            conversationMain.scrollTop = conversationMain.scrollHeight;
+                    conversationWrapper.innerHTML += messageHtml;
 
-                        }
-                        else{
-                            var user_msg = `<li class="conversation-item me">
+                    var conversationMain = document.querySelector('.conversation-main');
+                    var scrollHeight = conversationMain.scrollHeight;
+                    var animationDuration = 10000;
+                    conversationMain.style.transition = 'scrollTop ' + animationDuration + 'ms';
+                    conversationMain.scrollTop = scrollHeight;
+
+                }
+                else {
+
+                    var user_message = '<li class="conversation-item me">' +
+                        '<div class="conversation-item-side">' +
+                        '<img class="conversation-item-image" src="' + data.user_image + '" alt="">' +
+                        '</div>' +
+                        '<div class="conversation-item-content">' +
+                        '<div class="conversation-item-wrapper">' +
+                        '<div class="conversation-item-box">' +
+                        '<div class="conversation-item-text">' +
+                        '<p>' + data.message + '</p>' +
+                        '<div class="conversation-item-time">' + strTime + '</div>' +
+                        '</div>' +
+                        '<div class="conversation-item-dropdown">' +
+                        '<button type="button" class="conversation-item-dropdown-toggle"><i class="ri-more-2-line"></i></button>' +
+                        '<ul class="conversation-item-dropdown-list">' +
+                        '<li><a href="#"><i class="ri-share-forward-line"></i> Forward</a></li>' +
+                        '<li><a href="#"><i class="ri-delete-bin-line"></i> Delete</a></li>' +
+                        '</ul>' +
+                        '</div>' +
+                        '</div>' +
+                        '</div>' +
+                        '</div>' +
+                        '</li>';
+                    conversationWrapper.innerHTML += user_message;
+
+                    var conversationMain = document.querySelector('.conversation-main');
+                    var scrollHeight = conversationMain.scrollHeight;
+                    var animationDuration = 1000;
+                    conversationMain.style.transition = 'scrollTop ' + animationDuration + 'ms';
+                    conversationMain.scrollTop = scrollHeight
+                        ;
+
+                }
+            });
+
+            document.querySelectorAll('.content-messages-list li').forEach(function (item) {
+                item.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    var conversationId = this.querySelector('a').getAttribute('data-conversation');
+                    var conversation = document.querySelector(conversationId);
+                    var contactName = this.querySelector('.content-message-name').textContent;
+                    var contactImage = this.querySelector('.content-message-image').getAttribute('src');
+                    let cn = contactName
+                    // Update the conversation user name
+                    console.log(contactName);
+                    var conversationUserName = conversation.querySelector('.conversation-user-name');
+                    conversationUserName.textContent = contactName;
+
+                    // Update the conversation user image
+                    var conversationUserImage = conversation.querySelector('.conversation-user-image');
+                    conversationUserImage.setAttribute('src', contactImage);
+
+                    // Hide all conversations
+                    document.querySelectorAll('.conversation').forEach(function (conversation) {
+                        conversation.classList.remove('active');
+                    });
+
+                    // Show the selected conversation
+                    conversation.classList.add('active');
+                    console.log(cn);
+
+                    if (cn !== "tabibi") {
+                        fetch('/get_messages', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/x-www-form-urlencoded',
+                            },
+                            body: new URLSearchParams({
+                                'reciver': cn,
+                            }),
+                        })
+                            .then(response => response.json())
+                            .then(data => {
+                                if (data.message) {
+                                    const strTime = new Date().toLocaleTimeString();
+                                    var conversationWrapper = conversation.querySelector('.conversation-wrapper');
+                                    conversationWrapper.innerHTML = '';
+                                    data.message.forEach(message => {
+                                        if ("{{current_user.username}}" == message.sender) {
+                                            var my_msg = `<li class="conversation-item">
+                                <div class="conversation-item-side"></div>
+                                <div class="conversation-item-content">
+                                    <div class="conversation-item-wrapper">
+                                        <div class="conversation-item-box">
+                                            <div class="conversation-item-text">
+                                                <p>${message.message}</p>
+                                                <div class="conversation-item-time">${strTime}</div>
+                                            </div>
+                                            <div class="conversation-item-dropdown">
+                                                <button type="button" class="conversation-item-dropdown-toggle"><i class="ri-more-2-line"></i></button>
+                                                <ul class="conversation-item-dropdown-list">
+                                                    <li><a href="#"><i class="ri-share-forward-line"></i> Forward</a></li>
+                                                    <li><a href="#"><i class="ri-delete-bin-line"></i> Delete</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>`;
+                                            conversationWrapper.innerHTML += my_msg;
+                                            // Scroll to the bottom of the conversation wrapper
+                                            var conversationMain = document.querySelector('.conversation-main');
+                                            conversationMain.scrollTop = conversationMain.scrollHeight;
+
+                                        }
+                                        else {
+                                            var user_msg = `<li class="conversation-item me">
                                                 <div class="conversation-item-side">
                                                     <img class="conversation-item-image" src="${message.image}" alt="">
                                                 </div>
@@ -422,89 +444,48 @@ document.querySelectorAll('.content-messages-list li').forEach(function(item) {
                                                     </div>
                                                 </div>
                                             </li>`;
-                                conversationWrapper.innerHTML+=user_msg;
-                      
-                                var conversationMain = document.querySelector('.conversation-main');
-                                conversationMain.scrollTop = conversationMain.scrollHeight;
+                                            conversationWrapper.innerHTML += user_msg;
 
-                        }
+                                            var conversationMain = document.querySelector('.conversation-main');
+                                            conversationMain.scrollTop = conversationMain.scrollHeight;
 
-                    })
-                } else {
-                    console.error('No messages found');
-                }
-            })
-            .catch(error => console.error('Error:', error));
-        }
+                                        }
 
-        var conversationWrapper = conversation.querySelector('.conversation-wrapper');
-        conversationWrapper.innerHTML = '';
+                                    })
+                                } else {
+                                    console.error('No messages found');
+                                }
+                            })
+                            .catch(error => console.error('Error:', error));
+                    }
 
-        
-        var sendButton = conversation.querySelector('.conversation-form-submit');
-        var inputField = conversation.querySelector('.conversation-form-input');
+                    var conversationWrapper = conversation.querySelector('.conversation-wrapper');
+                    conversationWrapper.innerHTML = '';
 
-        sendButton.addEventListener('click', function(event) {
-            event.preventDefault();
 
-            // Get the value of the input field
-            var message = inputField.value.trim();
-            
-            if (message !== '') {
-                // Get the current time
-                const strTime = new Date().toLocaleTimeString();
-                
-                var messageHtml =  '<li class="conversation-item">' +
-                            '<div class="conversation-item-side">' +
-                            '<img class="conversation-item-image" src="{{url_for("static",filename=current_user.image_file)}}" alt="">' +
-                            '</div>' +
-                            '<div class="conversation-item-content">' +
-                            '<div class="conversation-item-wrapper">' +
-                            '<div class="conversation-item-box">' +
-                            '<div class="conversation-item-text">' +
-                            '<p>' + message + '</p>' +
-                            '<div class="conversation-item-time">' + strTime + '</div>' +
-                            '</div>' +
-                            '<div class="conversation-item-dropdown">' +
-                            '<button type="button" class="conversation-item-dropdown-toggle"><i class="ri-more-2-line"></i></button>' +
-                            '<ul class="conversation-item-dropdown-list">' +
-                            '<li><a href="#"><i class="ri-share-forward-line"></i> Forward</a></li>' +
-                            '<li><a href="#"><i class="ri-delete-bin-line"></i> Delete</a></li>' +
-                            '</ul>' +
-                            '</div>' +
-                            '</div>' +
-                            '</div>' +
-                            '</div>' +
-                            '</li>';
-    
-               
-                if (cn == "tabibi"){
+                    var sendButton = conversation.querySelector('.conversation-form-submit');
+                    var inputField = conversation.querySelector('.conversation-form-input');
 
-                conversationWrapper.insertAdjacentHTML('beforeend', messageHtml);
-                inputField.value = '';
-                var conversationMain = document.querySelector('.conversation-main');
-conversationMain.scrollTop = conversationMain.scrollHeight;
-                    fetch('/send_message', {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/x-www-form-urlencoded',
-                            },
-                            body: new URLSearchParams({
-                                'message-input': message,
-                            }),
-                        })
-                        .then(response => response.json())
-                        .then(data => {
-                            var messageBot = '<li class="conversation-item me">' +
+                    sendButton.addEventListener('click', function (event) {
+                        event.preventDefault();
+
+                        // Get the value of the input field
+                        var message = inputField.value.trim();
+
+                        if (message !== '') {
+                            // Get the current time
+                            const strTime = new Date().toLocaleTimeString();
+
+                            var messageHtml = '<li class="conversation-item">' +
                                 '<div class="conversation-item-side">' +
-                                '<img class="conversation-item-image" src="{{url_for("static",filename="tabibi.png")}}" alt="">' +
+                                '<img class="conversation-item-image" src="{{url_for("static",filename=current_user.image_file)}}" alt="">' +
                                 '</div>' +
                                 '<div class="conversation-item-content">' +
                                 '<div class="conversation-item-wrapper">' +
                                 '<div class="conversation-item-box">' +
                                 '<div class="conversation-item-text">' +
-                                '<p>' + data.ai_response + '</p>' +
-                                '<div class="conversation-item-time">' + strTime + '</div>' +
+                                '<p>' + message + '</p>' +
+                                '<div class="conversation-item-time">' + strTime.substring(0, 5) + '</div>' +
                                 '</div>' +
                                 '<div class="conversation-item-dropdown">' +
                                 '<button type="button" class="conversation-item-dropdown-toggle"><i class="ri-more-2-line"></i></button>' +
@@ -518,29 +499,71 @@ conversationMain.scrollTop = conversationMain.scrollHeight;
                                 '</div>' +
                                 '</li>';
 
-                            conversationWrapper.insertAdjacentHTML('beforeend', messageBot);
-                        })
-                        .catch(error => console.error('Error:', error));
 
-                        var conversationMain = document.querySelector('.conversation-main');
-conversationMain.scrollTop = conversationMain.scrollHeight;
-                }
-                else{
-                    Socket.emit("new_message", {"message": message, "reciver": cn});
-                    inputField.value = '';
-                    conversationWrapper = document.querySelector('.conversation-wrapper');
-                   
-                            var conversationMain = document.querySelector('.conversation-main');
-conversationMain.scrollTop = conversationMain.scrollHeight;
+                            if (cn == "tabibi") {
 
-                }
-                
-            }
-        });
-    });
-});
+                                conversationWrapper.insertAdjacentHTML('beforeend', messageHtml);
+                                inputField.value = '';
+                                var conversationMain = document.querySelector('.conversation-main');
+                                conversationMain.scrollTop = conversationMain.scrollHeight;
+                                fetch('/send_message', {
+                                    method: 'POST',
+                                    headers: {
+                                        'Content-Type': 'application/x-www-form-urlencoded',
+                                    },
+                                    body: new URLSearchParams({
+                                        'message-input': message,
+                                    }),
+                                })
+                                    .then(response => response.json())
+                                    .then(data => {
+                                        var messageBot = '<li class="conversation-item me">' +
+                                            '<div class="conversation-item-side">' +
+                                            '<img class="conversation-item-image" src="{{url_for("static",filename="tabibi.png")}}" alt="">' +
+                                            '</div>' +
+                                            '<div class="conversation-item-content">' +
+                                            '<div class="conversation-item-wrapper">' +
+                                            '<div class="conversation-item-box">' +
+                                            '<div class="conversation-item-text">' +
+                                            '<p>' + data.ai_response + '</p>' +
+                                            '<div class="conversation-item-time">' + strTime + '</div>' +
+                                            '</div>' +
+                                            '<div class="conversation-item-dropdown">' +
+                                            '<button type="button" class="conversation-item-dropdown-toggle"><i class="ri-more-2-line"></i></button>' +
+                                            '<ul class="conversation-item-dropdown-list">' +
+                                            '<li><a href="#"><i class="ri-share-forward-line"></i> Forward</a></li>' +
+                                            '<li><a href="#"><i class="ri-delete-bin-line"></i> Delete</a></li>' +
+                                            '</ul>' +
+                                            '</div>' +
+                                            '</div>' +
+                                            '</div>' +
+                                            '</div>' +
+                                            '</li>';
 
-    </script>
-    
+                                        conversationWrapper.insertAdjacentHTML('beforeend', messageBot);
+                                    })
+                                    .catch(error => console.error('Error:', error));
+
+                                var conversationMain = document.querySelector('.conversation-main');
+                                conversationMain.scrollTop = conversationMain.scrollHeight;
+                            }
+                            else {
+                                Socket.emit("new_message", { "message": message, "reciver": cn });
+                                inputField.value = '';
+                                conversationWrapper = document.querySelector('.conversation-wrapper');
+
+                                var conversationMain = document.querySelector('.conversation-main');
+                                conversationMain.scrollTop = conversationMain.scrollHeight;
+
+                            }
+
+                        }
+                    });
+                });
+            });
+
+        </script>
+
 </body>
+
 </html>
