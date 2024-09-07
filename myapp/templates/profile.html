@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
 
         <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
         <!--==Font-Awesome-for-icons=====-->
@@ -376,9 +377,194 @@ margin-top: 10%;
 }
 
     /* Media Query */
+    .chat-sidebar {
+    width: 64px;
+    background: linear-gradient(to right,#152c42, rgb(50, 55, 65),  #0b3b3b);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 50;
+}
+.chat-sidebar-logo {
+    font-size: 28px;
+    color: #ffffff;
+    display: block;
+    text-align: center;
+    padding: 12px 8px;
+    text-decoration: none;
+}
+.chat-sidebar-menu {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 16px 0;
+    background-color:rgba(0, 0, 0, 0.4);
+}
+.chat-sidebar-menu > * > a {
+    display: block;
+    text-align: center;
+    padding: 12px 8px;
+    font-size: 24px;
+    text-decoration: none;
+    color: #fbfdff;
+    position: relative;
+    transition: color .15s ease-in-out;
+}
+.chat-sidebar-menu > * > a:hover {
+    color: #222934;
+}
+.chat-sidebar-menu > .active > a {
+    box-shadow: inset 4px 0 0 0 #1d4d4d;
+    color: #fefefe;
+    background-color: #121c1c;
+}
+.chat-sidebar-menu > * > a::before {
+    content: attr(data-title);
+    position: absolute;
+    top: 50%;
+    left: calc(100% - 16px);
+    border-radius: 4px;
+    transform: translateY(-50%);
+    font-size: 13px;
+    padding: 6px 12px;
+    background-color: rgba(0, 0, 0, .6);
+    color: #ffffff;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .15s ease-in-out;
+}
+.chat-sidebar-menu > * > a:hover::before {
+    left: calc(100% - 8px);
+    opacity: 1;
+    visibility: visible;
+}
+.chat-sidebar-profile {
+    margin-top: auto;
+    position: relative;
+}
+.chat-sidebar-profile-toggle {
+    background-color: transparent;
+    border: none;
+    outline: transparent;
+    width: 40px;
+    height: 40px;
+    margin: 0 auto;
+    display: block;
+    cursor: pointer;
+}
+.chat-sidebar-profile-toggle > img {
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+.chat-sidebar-profile-dropdown {
+    position: absolute;
+    bottom: 100%;
+    left: 16px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .1);
+    list-style-type: none;
+    border-radius: 4px;
+    padding: 4px 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(.9);
+    transform-origin: left bottom;
+    transition: all .15s ease-in-out;
+}
+.chat-sidebar-profile.active .chat-sidebar-profile-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+}
+.chat-sidebar-profile-dropdown a {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    text-decoration: none;
+    color: #6b7280;
+    font-size: 14px;
+}
+.chat-sidebar-profile-dropdown a:hover {
+    background-color: #f3f4f6;
+    color: #4b5563;
+}
+.chat-sidebar-profile-dropdown a:active {
+    background-color: #edf2f7;
+}
+.chat-sidebar-profile-dropdown a i {
+    margin-right: 12px;
+    font-size: 17px;
+}  
+.chat-sidebar {
+       
+        height: 100%;
+        position: fixed;
+    }
+@media(max-width:750px){
+    .chat-sidebar {
+        top: unset;
+        bottom: 0;
+        width: 100%;
+        height: 48px;
+        position: fixed;
+    }
+    .chat-content + .chat-sidebar {
+        display: flex;
+    }
     
-  
-@media(max-width:950px){
+    /* Hide chat sidebar when in conversation */
+    .conversation.active + .chat-sidebar {
+        display: none;
+    }
+    .chat-sidebar-logo {
+        display: none;
+    }
+    .chat-sidebar-menu {
+        flex-direction: row;
+        padding: 0;
+    }
+    .chat-sidebar-menu > *,
+    .chat-sidebar-menu > * > a {
+        width: 100%;
+        height: 100%;
+    }
+    .chat-sidebar-menu > * > a {
+        padding: 8px;
+    }
+    .chat-sidebar-menu > .active > a {
+        box-shadow: inset 0 4px 0 0 var(--emerald-500);
+    }
+    .chat-sidebar-profile {
+        margin-top: 0;
+        display: flex;
+        align-items: center;
+    }
+    .chat-sidebar-profile-toggle {
+        width: 32px;
+        height: 32px;
+    }
+    .chat-sidebar-profile-dropdown {
+        left: unset;
+        right: 16px;
+    }
+
+    .chat-sidebar-menu > * > a::before {
+        left: 50%;
+        transform: translateX(-50%); 
+        bottom: 100%;
+        top: unset;
+    }
+    .chat-sidebar-menu > * > a:hover::before {
+        bottom: calc(100% + 8px);
+        left: 50%;
+    }
+    
     .navigation{
         justify-content: space-between;
         padding: 30px 0px;
@@ -667,10 +853,10 @@ a, li {
             width: auto;
         }
     
-        .profile-image img {
+        /* .profile-image img {
             width: 7.7rem;
         }
-    
+     */
         .profile-user-settings {
             flex-basis: calc(100% - 10.7rem);
             display: flex;
@@ -785,24 +971,26 @@ a, li {
 
 </style>
 
-    <header>
-        <nav class="navigation">
-            <input type="checkbox" class="menu-btn" id="menu-btn">
-            <label for="menu-btn" class="menu-icon">
-                <span class="nav-icon"></span>
-            </label>
-            <ul class="menu">
-                <li><a class="anav" href="{{url_for('home.home')}}"><i class="fas fa-home"></i> Home</a></li>
-                <li><a class="anav" href="{{url_for('browser.show_content')}}"><i class="fas fa-file-alt"></i> Articles</a></li>
-                <li><a class="anav" href="{{url_for('chat.chat')}}"><i class="fas fa-comments"></i> Chat-Ai</a></li>
-                <li><a class="anav" href="#"><i class="fas fa-info-circle"></i> About</a></li>
-                {%if current_user.is_authenticated%}
-                <li><a class="anav" href="{{url_for('profile.logout')}}"><i class="fas fa-sign-out-alt"></i> logout</a></li>
-                {%endif%}
-            
+<aside class="chat-sidebar">
+    <a href="{{url_for('chat.chat')}}" class="chat-sidebar-logo">
+        <i class="ri-chat-1-fill"></i>
+    </a>
+    <ul class="chat-sidebar-menu">
+        <li class="active"><a href="{{url_for('home.home')}}" data-title="Home"><i class="ri-home-line"></i></a></li>
+        <li><a href="{{url_for('browser.show_content')}}" data-title="Article"><i class="ri-file-line"></i></a></li>
+        <li><a href="#" data-title="Documents"><i class="ri-folder-line"></i></a></li>
+        <li><a href="#" data-title="Settings"><i class="ri-settings-line"></i></a></li>
+        <li class="chat-sidebar-profile">
+            <button title=".." type="button" class="chat-sidebar-profile-toggle">
+                <img src="{{url_for('static',filename=current_user.image_file)}}" alt="">
+            </button>
+            <ul class="chat-sidebar-profile-dropdown">
+                <li><a href="{{url_for('profile.user_profile')}}"><i class="ri-user-line"></i> Profile</a></li>
+                <li><a href="{{url_for('profile.logout')}}"><i class="ri-logout-box-line"></i> Logout</a></li>
             </ul>
-     
-      </header>  
+        </li>
+    </ul>
+</aside>
       <section>   
 	<div class="container">
 		<div class="profile">
@@ -832,9 +1020,11 @@ a, li {
 			</div>
 
 			<div class="profile-bio">
-
-				<p> {{current_user.about | safe }}</p>
-
+                {%if current_user.about == "None"%}
+				    <p> {{current_user.about | safe }}</p>
+                {%else%}
+                    <p></p>
+                {%endif%}
 			</div>
 
 		</div>
@@ -852,8 +1042,12 @@ a, li {
         <div class="card">
             <div class="card__header">
                 <a href="{{ url_for('browser.show_artical', post_id=post.id) }}">
-                    <img src="https://source.unsplash.com/600x400/?{{post.tag}}" alt="card__image" class="card__image"
+                   {%if post.post_image%}
+                    <img src="{{url_for('static',filename=post.post_image)}}" alt="card__image" class="card__image"
                         width="600">
+                    {%else%}
+                    <img src="https://source.unsplash.com/600x400/?{{post.tag}}" alt="card__image" class="card__image"width="600">
+                    {%endif%}
                 </a>
                 
             <div class="card__body">
@@ -926,6 +1120,16 @@ a, li {
     {%endif%}
 </main>
     <script>
+        document.querySelector('.chat-sidebar-profile-toggle').addEventListener('click', function(e) {
+    e.preventDefault()
+    this.parentElement.classList.toggle('active')
+})
+
+document.addEventListener('click', function(e) {
+    if(!e.target.matches('.chat-sidebar-profile, .chat-sidebar-profile *')) {
+        document.querySelector('.chat-sidebar-profile').classList.remove('active')
+    }
+})
         var kebab = document.querySelector('.kebab'),
     middle = document.querySelector('.middle'),
     cross = document.querySelector('.cross'),
