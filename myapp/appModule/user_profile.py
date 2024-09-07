@@ -44,7 +44,7 @@ class CreateArticleForm(FlaskForm):
     title = StringField('Title', validators=[DataRequired()])
     content = TextAreaField('Article Content', validators=[DataRequired()])
     image = FileField('Image')
-    tag = StringField('Tag', validators=[DataRequired()])
+    tag = StringField('Tag')
 
 
 
