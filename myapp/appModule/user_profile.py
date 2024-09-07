@@ -16,6 +16,7 @@ import os
 
 
 
+project_dir = os.path.dirname(os.path.abspath(__file__)) 
 profile = Blueprint('profile', __name__)
 
 
@@ -133,21 +134,15 @@ def user_post(userId):
             pic_filename = secure_filename(image.filename)
             pic = os.path.join("..//static//images//", pic_filename)
             print(pic)
-            if os.path.exists(pic):
-                # print(pic_path)
-                # pic_path = pic_path[30:]
-                # print(pic_path)
-                post.post_image = str(pic)
-
-                
-            else:
-                # print(pic_path)
+            print("create_all")
+            print(os.path.exists(pic))
+            print("chat.create")
+            if not os.path.exists(pic):
+                print(pic)
                 image.save(pic)
-                pic_ = pic[30:]
-                post.post_image = str(pic)
+            
+            new_post = Post(title=title, content=content, tag=tag, author=current_user, post_image=pic)
 
-    
-        new_post = Post(title=title, content=content,tag=tag,author=current_user,image=image)
         db.session.add(new_post)
         db.session.commit()
     posts = Post.query.filter_by(user_id=int(userId)).all()
@@ -166,24 +161,21 @@ def update_post(post_id):
         post.title = form.title.data
         post.content = form.content.data
         post.tag = form.tag.data
-        
         image = form.image.data
         if image:
             pic_filename = secure_filename(image.filename)
             pic = os.path.join("..//static//images//", pic_filename)
             print(pic)
-            if os.path.exists(pic):
-                # print(pic_path)
-                # pic_path = pic_path[30:]
-                # print(pic_path)
-                post.post_image = str(pic)
-
-                
-            else:
-                # print(pic_path)
+            print("create_all")
+            print(os.path.exists(pic))
+            print("chat.create")
+            if not os.path.exists(pic):
+                print(pic)
                 image.save(pic)
-                pic_ = pic[30:]
-                post.post_image = str(pic)
+                post.post_image = image
+            print(pic)
+            post.post_image = pic
+            
 
 
         db.session.commit()
