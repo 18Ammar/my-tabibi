@@ -247,7 +247,7 @@ img {
     width:450px;
     overflow: hidden;
     box-shadow: 0 .1rem 1rem rgba(0, 0, 0, 0.1);
-    border-radius: 1em;
+    border-radius: 0em;
     background:rgba(21, 57, 63, 0.721);
     color: white;
     position: relative; /* Add relative positioning */
@@ -667,8 +667,12 @@ footer {
                 </div>
 
                 <a href="{{ url_for('browser.show_artical', post_id=post.id) }}">
-                    <img src="https://source.unsplash.com/600x400/?{{post.tag}}" alt="card__image" class="card__image"
-                        width="600">
+                    {%if post.post_image%}
+							<img src="{{url_for('static',filename=post.post_image)}}" alt="card__image" class="card__image"
+								width="600">
+							{%else%}
+							<img src="https://source.unsplash.com/600x400/?{{post.tag}}" alt="card__image" class="card__image"width="600">
+							{%endif%}
                 </a>
             <div class="card__body">
                 <span class="tag tag-blue">{{post.tag}}</span>
