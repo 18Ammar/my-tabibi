@@ -110,68 +110,63 @@
 				</div>
 			
 			<!-- Code for viewing the Post -->
-			{%if posts%} 
-				{%for post in posts%}
+			<div class="col-9">
+  {% if posts %}
+    {% for post in posts %}
+      <div class="card">
+        <div class="top">
+          <div class="userDetails">
+            <div class="profilepic">
+              <div class="profile_img">
+                <div class="image">
+                  <img src="{{ url_for('static', filename=post.author.image_file) }}" alt="img8">
+                </div>
+              </div>
+            </div>
+            <h3>{{ post.author.username }}
+              <br>
+              <span>Iraq, Mosul</span>
+            </h3>
+          </div>
+          <div>
+            <span class="dot">
+              <i class="fas fa-ellipsis-h"></i>
+            </span>
+          </div>
+        </div>
+        <a href="{{ url_for('browser.show_artical',post_id=post.id) }}">
+          <div class="imgBx">
+            {% if post.post_image %}
+              <img src="{{ url_for('static', filename=post.post_image) }}" alt="card__image" class="card__image" width="600">
+            {% else %}
+              <img src="https://source.unsplash.com/600x400/?{{ post.tag }}" alt="card__image" class="card__image" width="600">
+            {% endif %}
+          </div>
+        </a>
+        <div class="bottom">
+          <div class="actionBtns">
+            <div class="left">
+              <span class="heart" onclick="addlike()">
+                <a href="#"><i class="fas fa-heart" aria-label="Like"></i></a>
+                <a href="#"><i class="fas fa-comment" aria-label="Comment"></i></a>
+                <a href="#"><i class="fas fa-share" aria-label="Share Post"></i></a>
+              </span>
+            </div>
+            <div class="right">
+              <a href="#"><i class="fas fa-bookmark" aria-label="Save"></i></a>
+            </div>
+          </div>
+          <a href="#">
+            <p class="likes">203 likes</p>
+          </a>
+          <h4>{{ post.title }}</h4>
+          <p>{{ post.content[:180]|safe }}...</p>
+        </div>
+      </div>
+    {% endfor %}
+  {% endif %}
+</div>
 
-					<div class="card">
-						<div class="top">
-							<div class="userDetails">
-								<div class="profilepic">
-									<div class="profile_img">
-										<div class="image">
-											<img src=
-											"{{url_for('static',filename=post.author.image_file)}}"
-												alt="img8">
-										</div>
-									</div>
-								</div>
-								<h3>{{post.author.username}}
-									<br>
-									<span>Iraq, Mosul</span>
-							</h3>
-							</div>
-							<div>
-								<span class="dot">
-									<i class="fas fa-ellipsis-h"></i>
-								</span>
-							</div>
-						</div>
-						<a href="{{url_for('browser.show_artical',post_id=post.id)}}">
-						<div class="imgBx">
-							{%if post.post_image%}
-							<img src="{{url_for('static',filename=post.post_image)}}" alt="card__image" class="card__image"
-								width="600">
-							{%else%}
-							<img src="https://source.unsplash.com/600x400/?{{post.tag}}" alt="card__image" class="card__image"width="600">
-							{%endif%}
-						</div>
-						</a>
-						<div class="bottom">
-							<div class="actionBtns">
-								<div class="left">
-									<span class="heart"
-										onclick="addlike()">
-										<a href="#"><i class="fas fa-heart" aria-label="Like"></i></a>
-										<a href="#"><i class="fas fa-comment" aria-label="Comment"></i></a>
-										<a href="#"><i class="fas fa-share" aria-label="Share Post"></i></a>
-									
-								</div>
-								<div class="right">
-									<a href=""><i class="fas fa-bookmark" aria-label="Save"></i></a>
-									
-								</div>
-							</div>
-							<a href="#">
-								<p class="likes">203 likes</p>
-
-							</a>
-							<h4>{{post.title}}</h4>
-							<p>{{post.content[:180]|safe }}...</p>
-						</div>
-					</div>
-				</div>
-				{%endfor%}
-				{%endif%}
 			<div class="col-3">
 				<div class="card">
 					<h4>Suggestions For You</h4>
